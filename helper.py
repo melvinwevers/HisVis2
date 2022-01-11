@@ -1,3 +1,10 @@
+from fastai.vision.all import *
+import torch
+from tqdm import tqdm
+
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
 def get_single_img_features(img_path):
     '''
     extract features from a single image using CLIP
@@ -11,7 +18,7 @@ def get_single_img_features(img_path):
     return features.cpu().numpy()
 
 
-def get_features(dataset):
+def get_features(model, dataset):
     all_features = []
     all_labels = []
     
@@ -32,7 +39,7 @@ def label_func(fname):
     return fname.parent.name
 
 
-def get_dls(bs, size, augment=True):
+def get_dls(bs, size, path, augment=True):
     '''
     function to get datablocks
     '''
@@ -55,8 +62,8 @@ def get_dls(bs, size, augment=True):
     return dblock.dataloaders(path, bs=128)
 
 
-def new_resnet(pretrained):
-    '''
-    fix for cnn_learner module using non-standard pre-trained models
-    '''
-    return default_res50
+# def new_resnet(pretrained):
+#     '''
+#     fix for cnn_learner module using non-standard pre-trained models
+#     '''
+#     return default_res50
