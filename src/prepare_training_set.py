@@ -16,6 +16,7 @@ def clean_folder(path, min_files=10):
         if len(contents) < min_files: 
             shutil.rmtree(os.path.join(path,folder))
             print('removed {}'.format(folder))
+    output.close()
 
 
 

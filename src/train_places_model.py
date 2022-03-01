@@ -49,13 +49,6 @@ def export_classification_report(learn, output_path, current_time):
 
 
 
-def new_resnet(pretrained):
-    '''
-    fix for cnn_learner module using non-standard pre-trained models
-    '''
-    return default_restore_location
-
-
 
 def main(training_path, n_epochs, lr, output_path):
 
@@ -65,13 +58,13 @@ def main(training_path, n_epochs, lr, output_path):
     Path.BASE_PATH = Path(training_path)
     #Path.BASE_PATH.ls()
     path = Path.BASE_PATH
-
-    data = get_dls(128, 224)
+    print(path)	
+    data = get_dls(128, 224, path)
     classes = data.vocab
-
+    print(classes)
     default_res50 = load_places()
 
-    learn = cnn_learner(get_dls(128, 224, augment=True),
+    learn = cnn_learner(get_dls(64, 224, path, augment=True),
                     new_resnet,
                     #models.resnet34,
                     metrics=[top_k_accuracy, 
@@ -90,7 +83,7 @@ def main(training_path, n_epochs, lr, output_path):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--training_data_path', type=str, default='../../../news_nl')
+    parser.add_argument('--training_data_path', type=str, default='../../MelvinWevers#9512/DeBoer_Step1/')
     parser.add_argument('--n_epochs', type=int, default=50)
     parser.add_argument('--lr', type=float, default=3e-3)
     parser.add_argument('--output_path', type=str, default='./output/models')

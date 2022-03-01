@@ -60,35 +60,41 @@ def make_avg_prediction(places_model, clip_model, classes, img_path, topk=5):
 
 
 
-def main(input_path, data_path, places_model_path, clip_model_path, output_path):
+def main(input_path, data_path, model_path, output_path):
     current_time = time.strftime("%Y%m%d")
+    print(current_time)
+    # Path.BASE_PATH = Path(input_path)
+    # classes = Path.BASE_PATH.ls()
+    # # data = get_dls(128, 224, path)
+    # # classes = data.vocab
+    # print(classes)
 
     # setting path variables 
-    Path.BASE_PATH = Path(input_path)
-    path = Path.BASE_PATH
 
-    data = get_dls(128, 224, path, augment=False)
-    classes = data.vocab
+    print(model_path)
 
     # places model
-    places_model = load_learner(places_model_path)
+    places_model = load_learner(os.path.join(model_path, '20220301DeBoerPlaces.pkl'))
+    print('model loaded')
 
     # clip model
-    clip_model = pickle.load(open(clip_model_path, 'rb'))
+    clip_model = pickle.load(open(os.path.join(model_path, '20220301_clip_linear_prob_model.sav'), 'rb'))
+    print('model loaded')
 
 
     # make prediction
 
     results = list()
     counter = 1
-
-    imgs = glob.glob(data_path + '/**/*.jpg')
+    print(data_path)
+    imgs = glob.glob(data_path + '/**/*.jpg', recursive=True)
+    print('number of images: {}'.format(len(imgs)))
 
     for img in imgs:
         if counter % 100 == 0:
             print(counter)
         serial_number = int(np.floor(counter/500)) + 1
-        series = f'random_{serial_number}'
+        series = f'random_batch2_{serial_number}'
         d = dict()
         filename = os.path.basename(img)[:-4]
         d['filename'] = filename
@@ -107,15 +113,13 @@ def main(input_path, data_path, places_model_path, clip_model_path, output_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--training_data_path', type=str, default='../../../news_nl')
-    parser.add_argument('--data_path', type=str)
-    parser.add_argument('--places_model', type=str, default='../../../news_nl')
-    parser.add_argument('--clip_model', type=str, default='../../../news_nl')
-
+    parser.add_argument('--training_data_path', type=str, default='../../data/DeBoer_Step1')
+    parser.add_argument('--data_path', default='../../data/VeleHanden')
+    parser.add_argument('--model_path', type=str, default='../models')
     parser.add_argument('--output_path', type=str, default='./output/predictions/')
     args = parser.parse_args()
 
     if not os.path.exists('./output/predictions'):
         os.makedirs('./output/predictions')
     
-    main(args.training_data_path, args.data_path, args.places_model, args.clip_model, args.lr, args.output_path)
+    main(args.training_data_path, args.data_path, args.model_path, args.output_path)

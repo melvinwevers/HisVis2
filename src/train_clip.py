@@ -49,7 +49,7 @@ def main(training_path, param_sweep, output_path):
         j = 0 
         for i in C_param_range:
             print(i)
-            classifier = LogisticRegression(random_state=0, C = i, max_iter=1000, n_jobs=-1)
+            classifier = LogisticRegression(random_state=0, C = i, max_iter=3000, n_jobs=-1)
             classifier.fit(train_features, train_labels)
         
             predictions = classifier.predict(test_features)
@@ -62,7 +62,7 @@ def main(training_path, param_sweep, output_path):
 
 
     # Perform logistic regression
-    classifier = LogisticRegression(random_state=0, C=C, max_iter=1000, verbose=0, n_jobs=-1)
+    classifier = LogisticRegression(random_state=0, C=C, max_iter=3000, verbose=1, n_jobs=-1)
     classifier.fit(train_features, train_labels)
 
     # Evaluate using the logistic regression classifier
@@ -104,7 +104,7 @@ def main(training_path, param_sweep, output_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--training_data_path', type=str, default='../../../news_nl')
-    parser.add_argument('--param_sweep', type=bool, default=False)
+    parser.add_argument('--param_sweep', help='sweep parameters', action='store_true', default=False)
     parser.add_argument('--output_path', type=str, default='./output/models')
     args = parser.parse_args()
 
