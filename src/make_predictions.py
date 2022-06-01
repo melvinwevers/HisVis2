@@ -71,7 +71,10 @@ def main(data_path, model_path, output_path):
     
     classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
 
-    # setting path variables nano 
+    classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
+    print(classes)
+
+    # setting path variables 
 
     print(model_path)
 
@@ -115,7 +118,8 @@ def main(data_path, model_path, output_path):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_path', default='../data/VeleHanden')
+    #parser.add_argument('--training_data_path', type=str, default='../../data/DeBoer_Step1')
+    parser.add_argument('--data_path', default='../../MelvinWevers#9512/VeleHanden')
     parser.add_argument('--model_path', type=str, default='./models')
     parser.add_argument('--output_path', type=str, default='./output/predictions/')
     args = parser.parse_args()
