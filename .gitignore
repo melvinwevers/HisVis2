@@ -1,6 +1,7 @@
 models/
 output/models/
 .DS_store
+data/step2/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
