@@ -1,0 +1,43 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: linux-64
+_libgcc_mutex=0.1=main
+_openmp_mutex=4.5=1_gnu
+ca-certificates=2021.10.26=h06a4308_2
+certifi=2021.10.8=py37h06a4308_2
+charset-normalizer=2.0.10=pypi_0
+click=8.0.3=pypi_0
+filelock=3.4.2=pypi_0
+idna=3.3=pypi_0
+importlib-metadata=4.10.1=pypi_0
+joblib=1.1.0=pypi_0
+ld_impl_linux-64=2.35.1=h7274673_9
+libffi=3.3=he6710b0_2
+libgcc-ng=9.3.0=h5101ec6_17
+libgomp=9.3.0=h5101ec6_17
+libstdcxx-ng=9.3.0=hd4cf53a_17
+ncurses=6.3=h7f8727e_2
+numpy=1.21.5=pypi_0
+openssl=1.1.1m=h7f8727e_0
+packaging=21.3=pypi_0
+pip=21.2.2=py37h06a4308_0
+pyparsing=3.0.7=pypi_0
+python=3.7.11=h12debd9_0
+pyyaml=6.0=pypi_0
+readline=8.1.2=h7f8727e_1
+regex=2022.1.18=pypi_0
+requests=2.27.1=pypi_0
+setuptools=58.0.4=py37h06a4308_0
+six=1.16.0=pypi_0
+sqlite=3.37.0=hc218d9a_0
+threadpoolctl=3.0.0=pypi_0
+tk=8.6.11=h1ccaba5_0
+tokenizers=0.10.3=pypi_0
+torch=1.10.1=pypi_0
+tqdm=4.62.3=pypi_0
+typing-extensions=4.0.1=pypi_0
+urllib3=1.26.8=pypi_0
+wheel=0.37.1=pyhd3eb1b0_0
+xz=5.2.5=h7b6447c_0
+zipp=3.7.0=pypi_0
+zlib=1.2.11=h7f8727e_4
