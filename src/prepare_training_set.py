@@ -9,7 +9,7 @@ def clean_folder(path, min_files=10):
         if os.path.exists(os.path.join(path, _)) and os.path.isdir(os.path.join(path, _)):
             shutil.rmtree(os.path.join(path, _))
     folders = ([name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))]) # get all directories 
-    with open("all_labels.txt", "w") as output:
+    with open("all_labels.txt", "w") as output: #fix to write after cleaning
         output.write(str(folders))
     for folder in folders:
         contents = os.listdir(os.path.join(path,folder)) # get list of contents
