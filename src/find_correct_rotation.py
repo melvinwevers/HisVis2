@@ -3,12 +3,14 @@ import PIL
 import torchvision.transforms as T
 import argparse
 import glob
+import os
+import csv
 import progressbar
 
 
 
-def load_model():
-    model_ = load_learner('../models/rotation.pkl')
+def load_model(model_path):
+    model_ = load_learner(model_path)
     classes = ['incorrect', 'normal']
     return model_, classes
 
@@ -43,18 +45,20 @@ def check_orientation(model_, classes, img):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('input_path', help='Path to image directory')
+    parser.add_argument('-o', '--model_path', help='Path to model directory')
     args = parser.parse_args()
 
     input_path = args.input_path
+    model_path = args.model_path
 
     rotated_images = {}
 
-    model_, classes = load_model()
-    imgs = glob.glob(input_path)
+    model_, classes = load_model(model_path)
+    imgs = glob.glob(input_path, recursive=True)
     with progressbar.ProgressBar(max_value = len(imgs)) as bar:
         for i, image in enumerate(imgs):
-            imgPath = os.path.join(input_path, image)
-            check_orientation(model_, classes, imgPath)
+            #imgPath = os.path.join(input_path, image)
+            check_orientation(model_, classes, image)
             bar.update(i)
 
     

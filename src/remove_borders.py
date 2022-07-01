@@ -2,7 +2,6 @@ import argparse
 import cv2 as cv
 import os
 import glob
-import progressbar
 from PIL import Image
 import warnings
 
@@ -111,14 +110,14 @@ if __name__ == '__main__':
         os.makedirs(output_path)
 
 
-    imgs = glob.glob(input_path)
+    imgs = glob.glob(input_path, recursive=True)
     print(len(imgs))
-    with progressbar.ProgressBar(max_value = len(imgs)) as bar:
-        for i, image in enumerate(imgs):
-            imgPath = os.path.join(input_path, image)
-            crop_biggest(imgPath, output_path, format, threshold, resize, find_border)
-            bar.update(i)
-            os.remove(os.path.join(input_path, image))
+
+    for i, image in enumerate(imgs):
+        print(i)
+        #imgPath = os.path.join(input_path, image)
+        crop_biggest(image, output_path, format, threshold, resize, find_border)
+        os.remove(image)
 
     with open('mistakes_batch98.txt', 'w') as f:
         for item in mistakes:
