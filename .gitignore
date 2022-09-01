@@ -1,6 +1,8 @@
 models/
 output/models/
+data/step3_training_data/
 .DS_store
+.DS_Store
 data/step2/
 
 # Byte-compiled / optimized / DLL files
