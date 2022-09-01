@@ -4,6 +4,11 @@ import glob
 import shutil
 
 def clean_folder(path, min_files=10):
+    '''
+    This function removes unneeded folders and labels with images occuring less than 
+    min_files. 
+    
+    '''
     remove_folders =['1_Voorbeeldfotos_bij_labels', 'no_description_found']
     for _ in remove_folders:
         if os.path.exists(os.path.join(path, _)) and os.path.isdir(os.path.join(path, _)):
@@ -17,7 +22,6 @@ def clean_folder(path, min_files=10):
             shutil.rmtree(os.path.join(path,folder))
             print('removed {}'.format(folder))
     output.close()
-
 
 
 

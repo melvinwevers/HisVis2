@@ -1,25 +1,40 @@
-from fastai.vision.all import *
-import PIL
-import torchvision.transforms as T
 import argparse
-import glob
-import os
 import csv
+import glob
+import numpy as np
+import os
+import PIL
 import progressbar
+import time
 
+from fastai.vision.all import *
+import torchvision.transforms as T
 
 
 def load_model(model_path):
+    '''
+    load trained model to identify correct rotation
+    '''
+
+
     model_ = load_learner(model_path)
     classes = ['incorrect', 'normal']
     return model_, classes
 
 
 def label_func(fname):
+    '''
+    grab label name from folder
+    '''
     return fname.parent.name
 
 
 def check_orientation(model_, classes, img):
+    '''
+    This function rotates the image in 90 degree intervals until the model 
+    gives the prediction 'normal'. 
+    
+    '''
     for rotation in [0, 90, -90, 180]:
         img_ = PIL.Image.open(img).convert('RGB').rotate(rotation, expand=True)
         img_array = np.array(img_)
@@ -51,6 +66,8 @@ if __name__ == '__main__':
     input_path = args.input_path
     model_path = args.model_path
 
+    current_time = time.strftime("%Y%m%d")
+
     rotated_images = {}
 
     model_, classes = load_model(model_path)
@@ -63,11 +80,11 @@ if __name__ == '__main__':
 
     
     try:
-        with open('rotated_images_batch01.csv', 'w') as csvfile:
+        with open(f'{current_time}_rotated_images.csv', 'w') as csvfile:
             writer = csv.writer(csvfile)
             for key, value in rotated_images.items():
                 writer.writerow([key, value])
     except IOError:
-        print('I/O errortje!')
+        print('I/O error')
 
 

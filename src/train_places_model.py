@@ -9,6 +9,10 @@ from helper import *
 
 
 def load_places():
+    '''
+    We load the pre-trained Places-365 model as a starting point
+    '''
+
     # th architecture to use
     arch = 'resnet50'
 
@@ -34,7 +38,12 @@ def load_places():
     default_res50.load_state_dict(new_state_dict)
     return default_res50
 
+
 def export_classification_report(learn, output_path, current_time):
+    '''
+    This function generates a classification report based on the fine-tuned
+    Places model.
+    '''
     interp = ClassificationInterpretation.from_learner(learn)
     interp.print_classification_report()
 
@@ -59,7 +68,7 @@ def main(training_path, n_epochs, lr, output_path):
     #Path.BASE_PATH.ls()
     path = Path.BASE_PATH
     print(path)	
-    data = get_dls(128, 224, path)
+    data = get_dls(256, 224, path)
     classes = data.vocab
     print(classes)
     default_res50 = load_places()
@@ -78,18 +87,18 @@ def main(training_path, n_epochs, lr, output_path):
     export_classification_report(learn, output_path, current_time)
 
     # save model
-    filename = current_time + 'DeBoerPlaces.pkl'   
+    filename = current_time + '_DeBoerPlaces.pkl'   
     learn.export(os.path.join(output_path, filename))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--training_data_path', type=str, default='../../MelvinWevers#9512/DeBoer_Step1/')
+    parser.add_argument('--training_data_path', type=str, default='/DeBoer_training/final_set/')
     parser.add_argument('--n_epochs', type=int, default=50)
     parser.add_argument('--lr', type=float, default=3e-3)
-    parser.add_argument('--output_path', type=str, default='./output/models')
+    parser.add_argument('--output_path', type=str, default='../output/models')
     args = parser.parse_args()
 
-    if not os.path.exists('./output/models'):
-        os.makedirs('./output/models')
+    if not os.path.exists('../output/models'):
+        os.makedirs('../output/models')
     
     main(args.training_data_path, args.n_epochs, args.lr, args.output_path)

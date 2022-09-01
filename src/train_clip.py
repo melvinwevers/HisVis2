@@ -16,8 +16,9 @@ from tqdm import tqdm
 
 import time
 
-
 from helper import *
+
+# Finetuning CLIP needs more iterations if there's too much data. Perhaps take a sample?
 
 def main(training_path, param_sweep, output_path):
 
@@ -103,12 +104,13 @@ def main(training_path, param_sweep, output_path):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--training_data_path', type=str, default='../../../news_nl')
+    parser.add_argument('--training_data_path', type=str, default='/DeBoer_training/final_set')
     parser.add_argument('--param_sweep', help='sweep parameters', action='store_true', default=False)
-    parser.add_argument('--output_path', type=str, default='./output/models')
+    ## Whether to use parameter sweep over logistic classifier setting.
+    parser.add_argument('--output_path', type=str, default='../output/models')
     args = parser.parse_args()
 
-    if not os.path.exists('./output/models'):
-        os.makedirs('./output/models')
+    if not os.path.exists('../output/models'):
+        os.makedirs('../output/models')
     
     main(args.training_data_path, args.param_sweep, args.output_path)
