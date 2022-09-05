@@ -63,7 +63,7 @@ def main(training_path, param_sweep, output_path):
 
 
     # Perform logistic regression
-    classifier = LogisticRegression(random_state=0, C=C, max_iter=3000, verbose=1, n_jobs=-1)
+    classifier = LogisticRegression(random_state=0, C=C, max_iter=10000, verbose=1, n_jobs=-1)
     classifier.fit(train_features, train_labels)
 
     # Evaluate using the logistic regression classifier

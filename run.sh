@@ -11,7 +11,7 @@ module load Python/3.9.5-GCCcore-10.3.0
 
  
 #Copy input file to scratch
-cp -r $HOME/data/DeBoer_training/final_set "$TMPDIR"
+cp -r $HOME/data/DeBoer_training/set_binnen_buiten "$TMPDIR"
 
 echo "files copied!"
  
@@ -20,8 +20,8 @@ mkdir "$TMPDIR"/output_dir
  
 #Execute a Python program located in $HOME, that takes an input file and output directory as arguments.
 
-python $HOME/HisVis2/src/train_places_model.py --training_data_path "$TMPDIR"/final_set --output_path "$TMPDIR"/output_dir
-#python $HOME/HisVis2/src/train_clip.py --training_data_path "$TMPDIR"/final_set --output_path "$TMPDIR"/output_dir
+#python $HOME/HisVis2/src/train_places_model.py --training_data_path "$TMPDIR"/set_binnen_buiten --output_path "$TMPDIR"/output_dir
+python $HOME/HisVis2/src/train_clip.py --training_data_path "$TMPDIR"/set_binnen_buiten --output_path "$TMPDIR"/output_dir
  
 #Copy output directory from scratch to home
 cp -r "$TMPDIR"/output_dir $HOME
