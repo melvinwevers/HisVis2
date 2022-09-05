@@ -50,7 +50,7 @@ def main(training_path, param_sweep, output_path):
         j = 0 
         for i in C_param_range:
             print(i)
-            classifier = LogisticRegression(random_state=0, C = i, max_iter=3000, n_jobs=-1)
+            classifier = LogisticRegression(random_state=0, C = i, max_iter=5000, n_jobs=-1)
             classifier.fit(train_features, train_labels)
         
             predictions = classifier.predict(test_features)

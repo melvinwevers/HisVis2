@@ -59,13 +59,12 @@ def export_classification_report(learn, output_path, current_time):
 
 
 
-def main(training_path, n_epochs, lr, output_path):
+def main(training_path, batch_size, n_epochs, lr, find_lr, output_path):
 
     current_time = time.strftime("%Y%m%d")
 
     # setting path variables 
     Path.BASE_PATH = Path(training_path)
-    #Path.BASE_PATH.ls()
     path = Path.BASE_PATH
     print(path)	
     data = get_dls(256, 224, path)
@@ -73,7 +72,7 @@ def main(training_path, n_epochs, lr, output_path):
     print(classes)
     default_res50 = load_places()
 
-    learn = cnn_learner(get_dls(64, 224, path, augment=True),
+    learn = cnn_learner(get_dls(batch_size, 224, path, augment=True),
                     new_resnet,
                     #models.resnet34,
                     metrics=[top_k_accuracy, 
@@ -81,24 +80,35 @@ def main(training_path, n_epochs, lr, output_path):
                              error_rate])
 
     # train model
-    learn.fit_one_cycle(n_epochs, lr, cbs=[EarlyStoppingCallback(monitor='valid_loss', min_delta=0.01, patience=5)])
+    if find_lr:
+        print('finding learning rate!')
+        lr = learn.lr_find()
+        print(f'optimal lr: {lr}')
+    else:
+        learn.fit_one_cycle(n_epochs, lr, cbs=[EarlyStoppingCallback(monitor='valid_loss', min_delta=0.01, patience=5)])
 
-    # evaluate model
-    export_classification_report(learn, output_path, current_time)
+        # evaluate model
+        export_classification_report(learn, output_path, current_time)
 
-    # save model
-    filename = current_time + '_DeBoerPlaces.pkl'   
-    learn.export(os.path.join(output_path, filename))
+        # save model
+        filename = current_time + '_DeBoerPlaces.pkl'   
+        learn.export(os.path.join(output_path, filename))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--training_data_path', type=str, default='/DeBoer_training/final_set/')
+    parser.add_argument('--batch_size', type=int, default=64)
     parser.add_argument('--n_epochs', type=int, default=50)
     parser.add_argument('--lr', type=float, default=3e-3)
+    parser.add_argument('--find_lr', action='store_true', default=False)
     parser.add_argument('--output_path', type=str, default='../output/models')
     args = parser.parse_args()
+
+    print(f'learning rate: {args.lr}')
+    print(f'batch size: {args.batch_size}')
 
     if not os.path.exists('../output/models'):
         os.makedirs('../output/models')
     
-    main(args.training_data_path, args.n_epochs, args.lr, args.output_path)
+    
+    main(args.training_data_path, args.batch_size, args.n_epochs, args.lr, args.find_lr, args.output_path)
