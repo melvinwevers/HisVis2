@@ -47,6 +47,11 @@ def export_classification_report(learn, output_path, current_time):
     interp = ClassificationInterpretation.from_learner(learn)
     interp.print_classification_report()
 
+    cm = interp.plot_confusion_matrix(dpi=200, figsize=(10,10))
+    filename = current_time + '_cm.png'
+    plt.savefig(os.path.join(output_path, filename))
+
+
     predictions_,test_labels_ = flatten_check(interp.decoded, interp.targs)
     report = classification_report(test_labels_, predictions_, 
                                    labels=list(interp.vocab.o2i.values()), 
@@ -61,7 +66,7 @@ def export_classification_report(learn, output_path, current_time):
 
 def main(training_path, batch_size, n_epochs, lr, find_lr, output_path):
 
-    current_time = time.strftime("%Y%m%d")
+    current_time = time.strftime("%Y%m%d_%H:%M")
 
     # setting path variables 
     Path.BASE_PATH = Path(training_path)
@@ -74,7 +79,7 @@ def main(training_path, batch_size, n_epochs, lr, find_lr, output_path):
 
     learn = cnn_learner(get_dls(batch_size, 224, path, augment=True),
                     new_resnet,
-                    #models.resnet34,
+                    #models.resnet50, #try resnet 5
                     metrics=[top_k_accuracy, 
                              accuracy,
                              error_rate])
@@ -109,6 +114,5 @@ if __name__ == '__main__':
 
     if not os.path.exists('../output/models'):
         os.makedirs('../output/models')
-    
-    
+    print('using places365, higher batch, focus on rotation and zoom')
     main(args.training_data_path, args.batch_size, args.n_epochs, args.lr, args.find_lr, args.output_path)
