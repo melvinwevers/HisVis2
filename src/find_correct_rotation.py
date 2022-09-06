@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import argparse
 import csv
 import glob
@@ -9,6 +12,8 @@ import time
 
 from fastai.vision.all import *
 import torchvision.transforms as T
+from helper import label_func
+
 
 
 def load_model(model_path):
@@ -20,13 +25,6 @@ def load_model(model_path):
     model_ = load_learner(model_path)
     classes = ['incorrect', 'normal']
     return model_, classes
-
-
-def label_func(fname):
-    '''
-    grab label name from folder
-    '''
-    return fname.parent.name
 
 
 def check_orientation(model_, classes, img):
@@ -54,7 +52,6 @@ def check_orientation(model_, classes, img):
         elif top_classes[0] == 'incorrect':
             pass
 
-        
 
 
 if __name__ == '__main__':

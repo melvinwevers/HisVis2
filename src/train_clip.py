@@ -32,7 +32,7 @@ def main(training_path, param_sweep, output_path):
     #Path.BASE_PATH.ls()
     path = Path.BASE_PATH
 
-    data = get_dls(128, 224, path, augment=False)
+    data = get_dls(128, 224, path, augment=True)
 
     # Calculate the image features
     train_features, train_labels = get_features(model, data.train)

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import clip
 from fastai.vision.all import *
 
@@ -18,12 +21,23 @@ model, preprocess = clip.load('ViT-B/32', device)
 
 
 
-def clip_predict(text_features, dutch_labels, img_path, k=2):
+def clip_predict(text_features, dutch_labels, img_path):
+    '''
+    make predictions using clip. 
+    text_features: embeddings of text inputs
+    dutch_labels: dutch translations of text inputs
+    img_path: location of image
+
+    returns dict with probabilities of predictions per label
+ 
+    '''
     output_ = {}
     image = preprocess(Image.open(img_path)).unsqueeze(0).to(device)
 
     with torch.no_grad():
         image_features = model.encode_image(image)
+
+    k = len(dutch_labels) # number of labels
 
     image_features /= image_features.norm(dim=-1, keepdim=True)
     text_features /= text_features.norm(dim=-1, keepdim=True)
@@ -36,20 +50,17 @@ def clip_predict(text_features, dutch_labels, img_path, k=2):
     return output_
 
 
-
-
-
-def main(data_path, output_path, k=10000):
+def main(data_path, output_path, n_samples=10000):
+    '''
+    Here we run through the datapath and take a sample which we input into the 
+    CLIP predict function. 
+    The text inputs and dutch labels are defined in this function. 
+    '''
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model, preprocess = clip.load('ViT-B/32', device)
 
     current_time = time.strftime("%Y%m%d")
     print(current_time)
-    # Path.BASE_PATH = Path(input_path)
-    # classes = Path.BASE_PATH.ls()
-    # # data = get_dls(128, 224, path)
-    # # classes = data.vocab
-    # print(classes)
 
     new_labels = ['indoor', 'outdoor']
     dutch_labels = ['binnen', 'buiten']
@@ -61,19 +72,19 @@ def main(data_path, output_path, k=10000):
 
     
     # make predictions
-
     results = list()
     counter = 1
     print(data_path)
     imgs = glob.glob(data_path + '/**/*.jpg', recursive=True)
+
     # take sample 
-    imgs = random.sample(imgs, k)
+    imgs = random.sample(imgs, n_samples)
     print('number of images: {}'.format(len(imgs)))
 
     for img in imgs:
         if counter % 100 == 0:
             print(counter)
-        serial_number = int(np.floor(counter/500)) + 1
+        serial_number = int(np.floor(counter/500)) + 1 # we add a serial number to the sets. 
         series = f'random_in_out_{serial_number}'
         d = dict()
         filename = os.path.basename(img)[:-4]
@@ -93,13 +104,11 @@ def main(data_path, output_path, k=10000):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    #parser.add_argument('--training_data_path', type=str, default='../../data/DeBoer_Step1')
     parser.add_argument('--data_path', default='../../MelvinWevers#9512/VeleHanden')
-    #parser.add_argument('--model_path', type=str, default='./models')
     parser.add_argument('--output_path', type=str, default='./output/predictions/')
     args = parser.parse_args()
 
-    if not os.path.exists('./output/predictions'):
-        os.makedirs('./output/predictions')
+    if not os.path.exists('../output/predictions'):
+        os.makedirs('../output/predictions')
     
     main(args.data_path, args.output_path)

@@ -1,13 +1,14 @@
-import clip
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from fastai.vision.all import *
 
-import pandas as pd
-
 import argparse
-
+import clip
 import glob
 import newlinejson
 import numpy as np
+import pandas as pd
 
 from helper import *
 
@@ -15,7 +16,6 @@ from helper import *
 # Load the model
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load('ViT-B/32', device)
-
 
 
 def get_single_img_features(img_path):
@@ -31,6 +31,17 @@ def get_single_img_features(img_path):
     return features.cpu().numpy()
 
 def make_avg_prediction(places_model, clip_model, classes, img_path, topk=5):
+    '''
+    make prediction for labels using both the places and clip models. 
+    We use softaveraging to combine predictions. 
+
+    places_model: location of the places model
+    clip_model: location of the clip model
+    classes: list of labels
+    img_path: location of images to make predictions on
+    top_k: number of predictions (Default is 5)
+    '''
+
     # to do implement selection between models and averaging
     output_ = {}
     
@@ -61,6 +72,7 @@ def make_avg_prediction(places_model, clip_model, classes, img_path, topk=5):
 
 
 def main(data_path, model_path, output_path):
+
     current_time = time.strftime("%Y%m%d")
     print(current_time)
     # Path.BASE_PATH = Path(input_path)
@@ -72,23 +84,21 @@ def main(data_path, model_path, output_path):
     # to do load classes from txt file
 
     classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
-    print(classes)
+    print(f'Classes are: {classes}')
 
     # setting path variables 
-
-    print(model_path)
+    print(f'model path is: {model_path}')
 
     # places model
     places_model = load_learner(os.path.join(model_path, '20220630DeBoerPlaces.pkl'))
-    print('model loaded')
+    print('Places model loaded')
 
     # clip model
     clip_model = pickle.load(open(os.path.join(model_path, '20220630_clip_linear_prob_model.sav'), 'rb'))
-    print('model loaded')
+    print('Clip model loaded')
 
 
     # make prediction
-
     results = list()
     counter = 1
     print(data_path)
@@ -121,7 +131,7 @@ if __name__ == '__main__':
     #parser.add_argument('--training_data_path', type=str, default='../../data/DeBoer_Step1')
     parser.add_argument('--data_path', default='../../MelvinWevers#9512/VeleHanden')
     parser.add_argument('--model_path', type=str, default='./models')
-    parser.add_argument('--output_path', type=str, default='./output/predictions/')
+    parser.add_argument('--output_path', type=str, default='../output/predictions/')
     args = parser.parse_args()
 
     if not os.path.exists('./output/predictions'):
