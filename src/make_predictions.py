@@ -30,6 +30,70 @@ def get_single_img_features(img_path):
 
     return features.cpu().numpy()
 
+def make_places_prediction(places_model, classes, img_path, topk=5):
+    '''
+    make predictions using Places-365 model
+    
+    arguments:
+    places_model: location of model
+    classes: list of classes to be used
+    img_path: location of image
+    topk: number of top results to be outputted
+    '''
+
+    output_ = {}
+    
+    # make places predictions
+    label, y, output = places_model.predict(img_path)
+    output_places = output.numpy()
+    output_places = np.expand_dims(output_places, axis=0)
+
+    
+
+    # select top-k
+    topk = topk * -1
+    
+    best_n = np.argsort(output_places, axis=1)[:,topk:]
+    probabilities = np.round(np.sort(output_places, axis=1)[:,topk:], 2)
+    labels = [classes[i] for i in best_n]
+    
+    for i, _ in enumerate(probabilities[0]):
+        output_[labels[0][i]] = probabilities[0][i]
+    #print(output_)
+    return output_
+
+
+def make_clip_prediction(clip_model, classes, img_path, topk=5):
+    '''
+    make prediction for labels using the clip model. 
+
+    clip_model: location of the clip model
+    classes: list of labels
+    img_path: location of images to make predictions on
+    top_k: number of predictions (Default is 5)
+    '''
+
+    # to do implement selection between models and averaging
+    output_ = {}
+    
+    # make clip predictions
+    img_features = get_single_img_features(img_path)
+    output_clip = clip_model.predict_proba(img_features)
+
+    # select top-k
+    topk = topk * -1
+    
+    best_n = np.argsort(output_clip, axis=1)[:,topk:]
+    probabilities = np.round(np.sort(output_clip, axis=1)[:,topk:], 2)
+    labels = [classes[i] for i in best_n]
+    
+    for i, _ in enumerate(probabilities[0]):
+        output_[labels[0][i]] = probabilities[0][i]
+    #print(output_)
+    return output_
+
+
+
 def make_avg_prediction(places_model, clip_model, classes, img_path, topk=5):
     '''
     make prediction for labels using both the places and clip models. 
@@ -82,8 +146,8 @@ def main(data_path, model_path, output_path):
     # print(classes)
 
     # to do load classes from txt file
-
-    classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
+    classes = np.loadtxt('../data/processed/all_labels.txt')
+    #classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
     print(f'Classes are: {classes}')
 
     # setting path variables 
@@ -115,6 +179,8 @@ def main(data_path, model_path, output_path):
         d['filename'] = filename
         d['series'] = series
         d['predictions'] = make_avg_prediction(places_model, clip_model, classes, img)
+        # change function if you only want to make a prediction with clip or places
+        # TODO: include this in one general function.
         
         results.append(d)
         counter += 1

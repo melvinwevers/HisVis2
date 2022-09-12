@@ -47,7 +47,7 @@ def crop_biggest(imgPath, outPath, format, threshold = 50, resize=True, find_bor
         # resize image
         img = cv.resize(img, resized)
 
-     if find_border:
+    if find_border:
         while w < w_min or h < h_min:
             _, threshold_ = cv.threshold(img, threshold, 255,0)
             contours, _ = cv.findContours(threshold_, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
@@ -77,7 +77,7 @@ def crop_biggest(imgPath, outPath, format, threshold = 50, resize=True, find_bor
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('input_path', help='Path to image directory')
+    parser.add_argument('input_path', help='Path to image directory') # '../data/**/*.jp2' 
     parser.add_argument('-o', '--output_path', help='Output Path')
     parser.add_argument('-t', '--threshold', help='border detection threshold', default=50)
     parser.add_argument('-f', '--format', help='type of photograph')
@@ -112,7 +112,7 @@ if __name__ == '__main__':
         os.remove(image)
 
 
-    with open(os.path.join(output_path, current_time, 'mistakes_cropping.txt', 'w')) as f:
+    with open(os.path.join(output_path, current_time, 'mistakes_cropping.txt'), 'w') as f:
         for item in mistakes:
             f.write("%s\n" % item)
         

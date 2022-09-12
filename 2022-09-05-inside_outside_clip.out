@@ -1,65 +1,0 @@
-files copied!
-/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
-torch.linalg.solve has its arguments reversed and does not return the LU factorization.
-To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
-X = torch.solve(B, A).solution
-should be replaced with
-X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
-  ret = func(*args, **kwargs)
-  0%|          | 0/51 [00:00<?, ?it/s]  2%|1         | 1/51 [00:04<03:20,  4.00s/it]  4%|3         | 2/51 [00:04<01:29,  1.82s/it]  6%|5         | 3/51 [00:04<00:53,  1.12s/it]  8%|7         | 4/51 [00:04<00:36,  1.27it/s] 10%|9         | 5/51 [00:05<00:27,  1.64it/s] 12%|#1        | 6/51 [00:05<00:23,  1.94it/s] 14%|#3        | 7/51 [00:05<00:19,  2.28it/s] 16%|#5        | 8/51 [00:06<00:16,  2.59it/s] 18%|#7        | 9/51 [00:06<00:14,  2.81it/s] 20%|#9        | 10/51 [00:06<00:13,  3.01it/s] 22%|##1       | 11/51 [00:06<00:12,  3.18it/s] 24%|##3       | 12/51 [00:07<00:11,  3.31it/s] 25%|##5       | 13/51 [00:07<00:11,  3.38it/s] 27%|##7       | 14/51 [00:07<00:10,  3.44it/s] 29%|##9       | 15/51 [00:07<00:10,  3.47it/s] 31%|###1      | 16/51 [00:08<00:09,  3.51it/s] 33%|###3      | 17/51 [00:08<00:09,  3.53it/s] 35%|###5      | 18/51 [00:08<00:09,  3.56it/s] 37%|###7      | 19/51 [00:09<00:08,  3.58it/s] 39%|###9      | 20/51 [00:09<00:08,  3.55it/s] 41%|####1     | 21/51 [00:09<00:08,  3.55it/s] 43%|####3     | 22/51 [00:09<00:08,  3.52it/s] 45%|####5     | 23/51 [00:10<00:07,  3.57it/s] 47%|####7     | 24/51 [00:10<00:07,  3.58it/s] 49%|####9     | 25/51 [00:10<00:07,  3.60it/s] 51%|#####     | 26/51 [00:11<00:06,  3.61it/s] 53%|#####2    | 27/51 [00:11<00:06,  3.62it/s] 55%|#####4    | 28/51 [00:11<00:06,  3.60it/s] 57%|#####6    | 29/51 [00:11<00:06,  3.58it/s] 59%|#####8    | 30/51 [00:12<00:05,  3.59it/s] 61%|######    | 31/51 [00:12<00:05,  3.57it/s] 63%|######2   | 32/51 [00:12<00:05,  3.57it/s] 65%|######4   | 33/51 [00:13<00:05,  3.58it/s] 67%|######6   | 34/51 [00:13<00:04,  3.61it/s] 69%|######8   | 35/51 [00:13<00:04,  3.61it/s] 71%|#######   | 36/51 [00:13<00:04,  3.60it/s] 73%|#######2  | 37/51 [00:14<00:03,  3.61it/s] 75%|#######4  | 38/51 [00:14<00:03,  3.62it/s] 76%|#######6  | 39/51 [00:14<00:03,  3.63it/s] 78%|#######8  | 40/51 [00:14<00:03,  3.65it/s] 80%|########  | 41/51 [00:15<00:02,  3.64it/s] 82%|########2 | 42/51 [00:15<00:02,  3.65it/s] 84%|########4 | 43/51 [00:15<00:02,  3.64it/s] 86%|########6 | 44/51 [00:16<00:01,  3.65it/s] 88%|########8 | 45/51 [00:16<00:01,  3.64it/s] 90%|######### | 46/51 [00:16<00:01,  3.65it/s] 92%|#########2| 47/51 [00:16<00:01,  3.62it/s] 94%|#########4| 48/51 [00:17<00:00,  3.62it/s] 96%|#########6| 49/51 [00:17<00:00,  3.59it/s] 98%|#########8| 50/51 [00:17<00:00,  3.59it/s]100%|##########| 51/51 [00:17<00:00,  3.60it/s]100%|##########| 51/51 [00:18<00:00,  2.83it/s]
-  0%|          | 0/13 [00:00<?, ?it/s]  8%|7         | 1/13 [00:03<00:41,  3.47s/it] 15%|#5        | 2/13 [00:03<00:17,  1.59s/it] 23%|##3       | 3/13 [00:04<00:09,  1.02it/s] 31%|###       | 4/13 [00:04<00:06,  1.44it/s] 38%|###8      | 5/13 [00:04<00:04,  1.86it/s] 46%|####6     | 6/13 [00:04<00:03,  2.27it/s] 54%|#####3    | 7/13 [00:05<00:02,  2.64it/s] 62%|######1   | 8/13 [00:05<00:01,  2.94it/s] 69%|######9   | 9/13 [00:05<00:01,  3.19it/s] 77%|#######6  | 10/13 [00:05<00:00,  3.38it/s] 85%|########4 | 11/13 [00:06<00:00,  3.52it/s] 92%|#########2| 12/13 [00:06<00:00,  3.61it/s]100%|##########| 13/13 [00:06<00:00,  3.47it/s]100%|##########| 13/13 [00:06<00:00,  1.94it/s]
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:   44.5s finished
-/home/mjwever/HisVis2/src/train_clip.py:71: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  accuracy = np.mean((test_labels == predictions).astype(np.float)) * 100.
-Accuracy = 95.539
-              precision    recall  f1-score   support
-
-      binnen       0.94      0.97      0.95       759
-      buiten       0.97      0.95      0.96       900
-
-    accuracy                           0.96      1659
-   macro avg       0.95      0.96      0.96      1659
-weighted avg       0.96      0.96      0.96      1659
-
-top5 acc 1.0
- This problem is unconstrained.
-RUNNING THE L-BFGS-B CODE
-
-           * * *
-
-Machine precision = 2.220D-16
- N =          513     M =           10
-
-At X0         0 variables are exactly at the bounds
-
-At iterate    0    f=  4.52486D+03    |proj g|=  1.78600D+03
-
-At iterate   50    f=  7.94141D+02    |proj g|=  1.79426D+01
-
-At iterate  100    f=  7.91452D+02    |proj g|=  7.20885D-01
-
-At iterate  150    f=  7.91380D+02    |proj g|=  1.02967D-01
-
-At iterate  200    f=  7.91363D+02    |proj g|=  1.10227D-01
-
-At iterate  250    f=  7.91351D+02    |proj g|=  1.76456D-02
-
-           * * *
-
-Tit   = total number of iterations
-Tnf   = total number of function evaluations
-Tnint = total number of segments explored during Cauchy searches
-Skip  = number of BFGS updates skipped
-Nact  = number of active bounds at final generalized Cauchy point
-Projg = norm of the final projected gradient
-F     = final function value
-
-           * * *
-
-   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-  513    260    295      1     0     0   4.558D-02   7.914D+02
-  F =   791.35126299277908     
-
-CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             

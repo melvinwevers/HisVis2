@@ -47,7 +47,7 @@ def export_classification_report(learn, output_path, current_time):
     interp = ClassificationInterpretation.from_learner(learn)
     interp.print_classification_report()
 
-    cm = interp.plot_confusion_matrix(dpi=200, figsize=(10,10))
+    cm = interp.plot_confusion_matrix(dpi=180, figsize=(30,30))
     filename = current_time + '_cm.png'
     plt.savefig(os.path.join(output_path, filename))
 
