@@ -48,6 +48,10 @@ def export_classification_report(learn, output_path, current_time):
     interp.print_classification_report()
 
     cm = interp.plot_confusion_matrix(dpi=180, figsize=(30,30))
+    filename = current_time + '_cm.pkl'
+
+    with open(os.path.join(output_path, filename), 'wb') as file:
+        pickle.dump(cm, file)
     filename = current_time + '_cm.png'
     plt.savefig(os.path.join(output_path, filename))
 
@@ -62,9 +66,10 @@ def export_classification_report(learn, output_path, current_time):
     report_df.to_csv(os.path.join(output_path, filename))
 
 
-
-
 def main(training_path, batch_size, n_epochs, lr, find_lr, output_path):
+
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
 
     current_time = time.strftime("%Y%m%d_%H:%M")
 
@@ -112,7 +117,5 @@ if __name__ == '__main__':
     print(f'learning rate: {args.lr}')
     print(f'batch size: {args.batch_size}')
 
-    if not os.path.exists('../output/models'):
-        os.makedirs('../output/models')
     print('using places365, higher batch, focus on rotation and zoom')
     main(args.training_data_path, args.batch_size, args.n_epochs, args.lr, args.find_lr, args.output_path)

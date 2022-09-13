@@ -48,7 +48,7 @@ def get_dls(bs, size, path, augment=True):
     if augment:
         batch_tfms=[*aug_transforms(size=size, 
                                     do_flip=True, 
-                                    flip_vert=True,
+                                    flip_vert=False,
                                     max_lighting = 0.2,
                                     p_lighting = 0.75,
                                     max_rotate = 10.0, 
