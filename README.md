@@ -18,6 +18,7 @@ This project includes software to:
 
 ## Prerequisites
 
+Python 3.7.11
 See `requirements.txt` to set up a Conda environment. 
 `conda create --name <envname> --file requirements.txt`
 

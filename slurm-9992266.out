@@ -1,0 +1,91 @@
+copying files
+files copied!
+starting training!
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+learning rate: 0.0003
+batch size: 64
+using places365, higher batch, focus on rotation and zoom
+/scratch/final_set
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'biljart', 'binnen_zwembad', 'bloemen', 'bloementuin', 'boksen', 'borden_gevelsteen', 'bordspel', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'carnaval', 'casino', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'helikopter', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kaartspel', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kermis', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'rugby', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'spoorweg', 'sport_overig', 'standbeeld', 'stemlokaal', 'straat', 'strand', 'tafel_tennis', 'tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'vuilnisbelt', 'waterpolo', 'waterweg', 'wielrennen', 'windmolen', 'windsurfen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan']
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+█epoch     train_loss  valid_loss  accuracy  error_rate  time    
+██0         4.534785    3.476063    0.297852  0.702148    05:14     
+██1         3.756737    2.834454    0.372075  0.627925    05:11     
+██2         3.243460    2.445141    0.426640  0.573360    05:12     
+██3         2.901157    2.219819    0.461162  0.538838    05:12     
+██4         2.642148    2.060210    0.486670  0.513330    05:12     
+██5         2.395274    1.950301    0.506521  0.493479    05:13     
+██6         2.294659    1.878888    0.520618  0.479382    05:12     
+██7         2.175218    1.821489    0.531454  0.468546    05:13     
+██8         2.072858    1.791059    0.540756  0.459244    05:11     
+██9         2.066453    1.746059    0.543249  0.456751    05:11     
+██10        1.916067    1.722750    0.551304  0.448696    05:13     
+██11        1.821267    1.715924    0.550153  0.449847    05:11     
+██12        1.821872    1.694030    0.554948  0.445052    05:12     
+██13        1.751881    1.669752    0.561853  0.438147    05:13     
+██14        1.758990    1.660525    0.562332  0.437668    05:11     
+██15        1.703567    1.650419    0.560894  0.439106    05:12     
+██16        1.695577    1.648376    0.562620  0.437380    05:12     
+██17        1.668040    1.634979    0.569141  0.430859    05:11     
+██18        1.609229    1.623038    0.570579  0.429421    05:11     
+██19        1.614477    1.618611    0.571730  0.428270    05:12     
+██20        1.598680    1.620558    0.570963  0.429037    05:11     
+██21        1.538611    1.619074    0.568853  0.431147    05:12     
+██22        1.511513    1.602847    0.574799  0.425201    05:13     
+██23        1.525589    1.605833    0.574799  0.425201    05:10     
+██24        1.479586    1.612180    0.573552  0.426448    05:11     
+██25        1.500437    1.601986    0.577675  0.422325    05:13     
+██26        1.439347    1.599463    0.577675  0.422325    05:12     
+██27        1.444948    1.587572    0.581703  0.418297    05:12     
+██28        1.414214    1.591234    0.581128  0.418872    05:13     
+██29        1.404953    1.585085    0.581991  0.418009    05:10     
+██30        1.364582    1.584485    0.582758  0.417242    05:13     
+██31        1.361764    1.581596    0.586402  0.413598    05:12     
+█

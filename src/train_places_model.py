@@ -85,7 +85,7 @@ def main(training_path, batch_size, n_epochs, lr, find_lr, output_path):
     learn = cnn_learner(get_dls(batch_size, 224, path, augment=True),
                     new_resnet,
                     #models.resnet50, #try resnet 5
-                    metrics=[top_k_accuracy, 
+                    metrics=[#top_k_accuracy, 
                              accuracy,
                              error_rate])
 

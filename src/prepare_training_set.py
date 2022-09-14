@@ -16,6 +16,9 @@ def clean_folder(input_path, output_path, min_files=10):
     '''
     remove_folders =['1_Voorbeeldfotos_bij_labels', 'no_description_found']
 
+    # if not os.path.exists(output_path):
+    #     os.makedirs(output_path)
+
     shutil.copytree(input_path, output_path)
 
     path = output_path
@@ -39,7 +42,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('input_path', help='Path to image directory')
     parser.add_argument('output_path', help='Path to image directory')
-    parser.add_argument('--limit', help='Minimal number of files per class', default=25, required=False)
+    parser.add_argument('--limit', help='Minimal number of files per class', required=False)
 
     args = parser.parse_args()
     input_path = args.input_path
