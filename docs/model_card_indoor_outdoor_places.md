@@ -19,6 +19,9 @@ The model has been created by Melvin Wevers (University of Amsterdam) in collabo
 ### Model version 
 1.0
 
+### Filename
+`indoor_outdoor/20220914_places_inside_outside_model.pkl`
+
 ### Model Type Information 
 The model is based on the pre-trained Places 365 model. We apply transfer learning using new images and classes to fine-tune the model.  
 
