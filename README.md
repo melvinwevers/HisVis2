@@ -45,12 +45,12 @@ Dr. Melvin Wevers (melvin.wevers(at)uva.nl)
 #### Processed
 
 ##### Annotations
-`annotation_data_step1.csv` - processed database export
-`annotation_data_step21.csv` - processed database export
-`annotation_data_step3.csv` - processed database export
+- `annotation_data_step1.csv` - processed database export
+- `annotation_data_step21.csv` - processed database export
+- `annotation_data_step3.csv` - processed database export
 
 ##### Training Data
-`all_labels.txt` - list of all labels used
+- `all_labels.txt` - list of all labels used
 
 Place training data from Zenodo here.
 
@@ -60,28 +60,28 @@ Place training data from Zenodo here.
 Contains example test file
 
 ### Docs
-`data_sheet.md` - data sheet for HisVis dataset
-`label_sheet.md` - label sheet documenting used labels
-`model_card_indoor_outdoor_clip` - model card for indoor-outdoor detection using CLIP
-`model_card_indoor_outdoor_places` - model card for indoor-outdoor detection using Places-365
-`model_card_rotation` - model card for correct rotation detection
-`model_card_scene_detection_clip` - model card for scene detection using CLIP
-`model_card_scene_detection_places` - model card for scene detection using Places-365
+- `data_sheet.md` - data sheet for HisVis dataset 
+- `label_sheet.md` - label sheet documenting used labels 
+- `model_card_indoor_outdoor_clip` - model card for indoor-outdoor detection using CLIP 
+- `model_card_indoor_outdoor_places` - model card for indoor-outdoor detection using Places-365 
+- `model_card_rotation` - model card for correct rotation detection
+- `model_card_scene_detection_clip` - model card for scene detection using CLIP
+- `model_card_scene_detection_places` - model card for scene detection using Places-365
 
 
 ### Notebooks
-`0.install_packages.ipynb` - install required packages that could not be installed using pip / conda
-`1.prepare_rotation_training_data.ipynb` - creating training data for the rotation model using correctly rotated data
-`2.train_model_rotation.ipynb` - training model for identifying correct rotation
-`3.make_predictions_in_out.ipynb` - predicting whether an image is taken indoor or outdoor using CLIP. 
-`4.prepare_output_picturae.ipynb` - preparing data exported from Vele Handen provided by Picturae.
-`5.analyze_annotations.ipynb` - analysis of annotation effort and code to prepare new training data
-`6.check_prediction_crop_or_not.ipynb` - evaluation of model performance on cropped and non-cropped images. 
+- `0.install_packages.ipynb` - install required packages that could not be installed using pip / conda
+- `1.prepare_rotation_training_data.ipynb` - creating training data for the rotation model using correctly rotated data
+- `2.train_model_rotation.ipynb` - training model for identifying correct rotation
+- `3.make_predictions_in_out.ipynb` - predicting whether an image is taken indoor or outdoor using CLIP.
+- `4.prepare_output_picturae.ipynb` - preparing data exported from Vele Handen provided by Picturae.
+- `5.analyze_annotations.ipynb` - analysis of annotation effort and code to prepare new training data
+- `6.check_prediction_crop_or_not.ipynb` - evaluation of model performance on cropped and non-cropped images. 
 
 ### Output
-`finding_learningrate.out` - output from learning rate finder used to estimate optimal learning rate
-`slurm-9991191.out` stack trace for training models
-`slurm-9992781.out` stack trace for training models
+- `finding_learningrate.out` - output from learning rate finder used to estimate optimal learning rate
+- `slurm-9991191.out` stack trace for training models <br>
+- `slurm-9992781.out` stack trace for training models <br>
 
 
 #### Models
@@ -91,7 +91,7 @@ Place models.tar.gz from Zenodo here
 Models and evaluation of models for indoor-outdoor detection
 
 ##### Rotation
-`rotation.pkl` model used to predict correct rotation of images 
+- `rotation.pkl` model used to predict correct rotation of images 
 
 ##### Scenes
 Models and evaluation for models for scene detection
