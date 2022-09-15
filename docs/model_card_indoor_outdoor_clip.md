@@ -67,3 +67,5 @@ The digitization and preparation of the photographic material was done by a heri
 
 ## Caveats and Recommendations
 The image are to a large extent black and white. We haven't checked how well the model performs on color images. 
+
+The fine-tuned CLIP model performs only slightly better than the places model (acc:0.64 vs 0.58, and top5-accuracy: 0.94 vs 0.93). However, it is not entirely clear on what data the CLIP model was trained making it less transparent. Given that the CLIP model relies on a logistic regression rather than new layers with dropout as is the case with the places model it might not generalize as well. The validation data, using unseen data, does show high accuracy, however, for some labels there is relatively few material. 
