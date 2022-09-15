@@ -19,6 +19,9 @@ The model has been created by Melvin Wevers (University of Amsterdam) in collabo
 ### Model version 
 1.0
 
+### Filename
+`scenes/20220914_clip_scene_detection_model.sav`
+
 ### Model Type Information 
 The model is based on the pre-trained CLIP model by Open AI. We create image embeddings using the model and we then train a logistic regression classifier using these embeddings. 
 
