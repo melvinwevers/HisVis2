@@ -18,17 +18,6 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load('ViT-B/32', device)
 
 
-def get_single_img_features(img_path):
-    '''
-    extract features from a single image using CLIP
-    '''
-        
-    image = preprocess(Image.open(img_path)).unsqueeze(0).to(device)
-  
-    with torch.no_grad():
-        features = model.encode_image(image)
-
-    return features.cpu().numpy()
 
 def make_places_prediction(places_model, classes, img_path, topk=5):
     '''

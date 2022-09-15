@@ -1,0 +1,1047 @@
+copying files
+files copied!
+starting training!
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+learning rate: 0.0003
+batch size: 64
+using places365, higher batch, focus on rotation and zoom
+/scratch/final_set
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'biljart', 'binnen_zwembad', 'bloemen', 'bloementuin', 'boksen', 'borden_gevelsteen', 'bordspel', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'carnaval', 'casino', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'helikopter', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kaartspel', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kermis', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'rugby', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'spoorweg', 'sport_overig', 'standbeeld', 'stemlokaal', 'straat', 'strand', 'tafel_tennis', 'tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'vuilnisbelt', 'waterpolo', 'waterweg', 'wielrennen', 'windmolen', 'windsurfen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan']
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+█epoch     train_loss  valid_loss  top_k_accuracy  accuracy  error_rate  time    
+██0         4.554689    3.461887    0.506521        0.299290  0.700710    05:13     
+██1         3.728818    2.839261    0.639241        0.368815  0.631185    05:11     
+██2         3.245810    2.452267    0.712792        0.424818  0.575182    05:11     
+██3         2.846175    2.208014    0.758535        0.464806  0.535194    05:10     
+██4         2.677268    2.055174    0.784522        0.492137  0.507863    05:09     
+██5         2.440989    1.963080    0.799099        0.508247  0.491753    05:08     
+██6         2.280739    1.892308    0.813003        0.523015  0.476985    05:11     
+██7         2.155185    1.823240    0.824799        0.528673  0.471327    05:09     
+██8         2.130955    1.783516    0.832374        0.532413  0.467587    05:09     
+██9         1.971402    1.768924    0.830265        0.537879  0.462121    05:09     
+██10        1.940910    1.730315    0.835731        0.550249  0.449751    05:08     
+██11        1.874911    1.716605    0.836498        0.549003  0.450997    05:09     
+██12        1.796848    1.694713    0.841389        0.552743  0.447257    05:11     
+██13        1.763402    1.681762    0.841005        0.559647  0.440353    05:09     
+██14        1.740228    1.667649    0.844745        0.558305  0.441695    05:09     
+██15        1.696689    1.655785    0.846471        0.562524  0.437476    05:11     
+██16        1.703006    1.645767    0.848868        0.565784  0.434216    05:08     
+██17        1.632166    1.635402    0.850882        0.563387  0.436613    05:08     
+██18        1.613522    1.629741    0.851745        0.566647  0.433353    05:09     
+██19        1.621752    1.617038    0.855389        0.569333  0.430667    05:09     
+██20        1.584771    1.614300    0.851362        0.567990  0.432010    05:11     
+██21        1.548822    1.609918    0.854814        0.571250  0.428750    05:11     
+██22        1.527890    1.607078    0.852992        0.573360  0.426640    05:10     
+██23        1.541016    1.616080    0.852896        0.570771  0.429229    05:10     
+██24        1.482569    1.605804    0.854430        0.574799  0.425201    05:10     
+██25        1.473258    1.601658    0.853471        0.574894  0.425105    05:09     
+██26        1.476917    1.598726    0.855965        0.578155  0.421845    05:11     
+██27        1.438805    1.600309    0.855677        0.574127  0.425873    05:09     
+██28        1.416415    1.590997    0.856540        0.577484  0.422516    05:10     
+██29        1.435961    1.597464    0.857787        0.577484  0.422516    05:11     
+██30        1.357397    1.589336    0.854910        0.579018  0.420982    05:11     
+██31        1.368544    1.597056    0.855869        0.581224  0.418776    05:10     
+██32        1.343618    1.592062    0.856828        0.580840  0.419160    05:11     
+██33        1.347649    1.589196    0.857211        0.579018  0.420982    05:11     
+No improvement since epoch 28: early stopping
+█/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+                        precision    recall  f1-score   support
+
+                 akker       0.53      0.56      0.54        55
+           amfitheater       0.67      0.59      0.62        17
+                  aula       0.43      0.32      0.37        31
+                  auto       0.60      0.59      0.59        80
+          auto_ongeluk       0.54      0.55      0.55        60
+              bakkerij       0.75      0.21      0.33        28
+     basketbal_korfbal       0.77      0.71      0.74        56
+         begraafplaats       0.83      0.33      0.48        15
+            begrafenis       0.54      0.37      0.44        19
+bibliotheek_boekwinkel       0.50      0.43      0.46        37
+               biljart       0.80      0.80      0.80         5
+        binnen_zwembad       0.53      0.67      0.59        24
+               bloemen       0.29      0.38      0.33        24
+           bloementuin       0.64      0.53      0.58        34
+                boksen       0.00      0.00      0.00         2
+     borden_gevelsteen       0.55      0.53      0.54       122
+              bordspel       0.00      0.00      0.00         2
+              bos_park       0.41      0.51      0.45        76
+                 boten       0.64      0.59      0.61       153
+            bouwplaats       0.59      0.70      0.64       401
+                 brand       0.68      0.64      0.66       110
+                  brug       0.43      0.55      0.48        42
+              bruiloft       0.56      0.39      0.46        49
+        buiten_zwembad       0.71      0.65      0.68        26
+             bus_truck       0.60      0.64      0.62       111
+                  cafe       0.58      0.54      0.56        78
+              carnaval       0.43      0.11      0.17        28
+                casino       1.00      0.50      0.67         2
+               catwalk       0.88      0.35      0.50        20
+                circus       0.76      0.54      0.63        41
+               cricket       0.92      0.96      0.94        56
+       dansende_mensen       0.42      0.28      0.33        90
+          demonstratie       0.55      0.45      0.50        95
+         dieren_overig       0.50      0.25      0.33        52
+                duinen       0.54      0.60      0.57        25
+                  eend       0.40      0.17      0.24        12
+               etalage       0.56      0.62      0.59        58
+         etende_mensen       0.60      0.59      0.59        75
+               fabriek       0.47      0.51      0.49       154
+      fietsende_mensen       0.54      0.45      0.49        71
+       garage_showroom       0.62      0.37      0.47        27
+                gebouw       0.61      0.71      0.66       378
+          geestelijken       0.39      0.21      0.27        63
+                  golf       0.38      0.16      0.22        19
+         groepsportret       0.53      0.56      0.55       504
+            gymnastiek       0.55      0.61      0.58        49
+               handbal       0.60      0.58      0.59        43
+             hardlopen       0.56      0.33      0.42        30
+                 haven       0.33      0.45      0.38        58
+            helikopter       1.00      0.40      0.57         5
+            herdenking       0.43      0.37      0.40        27
+ historisch_toneelstuk       0.26      0.19      0.22        36
+                hockey       0.62      0.50      0.55        32
+                  hond       0.53      0.74      0.62        50
+               honkbal       0.79      0.76      0.77       152
+                huisje       0.34      0.39      0.36        31
+             kaartspel       0.00      0.00      0.00         6
+                  kade       0.33      0.14      0.20        29
+              kamperen       0.67      0.52      0.59        23
+               kantoor       0.47      0.55      0.51       108
+                kapper       0.50      0.20      0.29        10
+                   kat       0.00      0.00      0.00        13
+           kerk_binnen       0.73      0.59      0.65       111
+           kerk_buiten       0.62      0.56      0.59        80
+                kermis       0.38      0.38      0.38        34
+              kerstmis       0.56      0.16      0.25        31
+                keuken       0.61      0.61      0.61        44
+            klaslokaal       0.46      0.45      0.45        83
+                   koe       0.27      0.19      0.22        16
+                konijn       0.00      0.00      0.00         6
+             kunstwerk       0.55      0.63      0.59       172
+             luchtfoto       0.84      0.89      0.87        66
+              maquette       0.74      0.81      0.77        78
+                 markt       0.50      0.63      0.56       124
+    mensen_op_een_boot       0.38      0.40      0.39        60
+        mensen_op_trap       0.50      0.27      0.35        11
+           mensenmassa       0.40      0.47      0.43       175
+              militair       0.62      0.19      0.29        27
+            motorfiets       0.27      0.18      0.21        17
+       muziek_optreden       0.44      0.54      0.48       291
+      ongeluk_brancard       0.00      0.00      0.00         8
+    ontvangst_afscheid       0.29      0.17      0.21        89
+             opgraving       0.50      0.27      0.35        11
+               optocht       0.48      0.38      0.42        77
+                 paard       0.68      0.69      0.68        61
+           plattegrond       0.89      0.53      0.67        15
+               portret       0.70      0.77      0.73      1444
+                  race       0.76      0.59      0.67        27
+                roeien       0.62      0.81      0.70        16
+                 rugby       1.00      0.17      0.29         6
+             schaatsen       0.72      0.59      0.65        39
+        schaken_dammen       0.88      0.72      0.79        71
+           scheepswerf       0.65      0.45      0.54        33
+           sinterklaas       0.71      0.56      0.62       140
+              slagerij       0.86      0.38      0.52        16
+       sneeuwlandschap       0.63      0.42      0.51        40
+                speech       0.45      0.30      0.36       115
+             speeltuin       0.53      0.45      0.49        38
+              spoorweg       0.00      0.00      0.00         5
+          sport_overig       0.18      0.06      0.09        70
+            standbeeld       0.46      0.41      0.43        64
+            stemlokaal       0.00      0.00      0.00         6
+                straat       0.47      0.54      0.50       261
+                strand       0.69      0.64      0.66        83
+          tafel_tennis       0.71      0.75      0.73        16
+                tennis       0.69      0.53      0.60        45
+       tentoonstelling       0.44      0.44      0.44       112
+                terras       0.55      0.59      0.57        29
+               theater       0.34      0.37      0.36        95
+                 toren       0.50      0.50      0.50        22
+                  tram       0.57      0.27      0.36        15
+                 trein       0.43      0.43      0.43        28
+         trein_ongeluk       0.75      0.69      0.72        13
+         trein_station       0.47      0.47      0.47        19
+  uitreiking_huldiging       0.52      0.65      0.58       399
+            vechtsport       0.40      0.40      0.40        10
+        vergaderruimte       0.58      0.60      0.59       151
+           vijver_plas       0.36      0.45      0.40        22
+              visserij       0.59      0.42      0.49        69
+           vlag_hijsen       0.40      0.17      0.24        12
+             vliegtuig       0.55      0.44      0.49        39
+               voetbal       0.84      0.88      0.86       384
+          voetbal_team       0.69      0.88      0.77        40
+                vogels       0.53      0.30      0.38        30
+             volleybal       0.82      0.68      0.74        34
+           vuilnisbelt       0.00      0.00      0.00         5
+             waterpolo       0.93      0.88      0.90        16
+              waterweg       0.50      0.35      0.41        57
+            wielrennen       0.63      0.56      0.59        43
+             windmolen       0.68      0.65      0.67        20
+            windsurfen       0.00      0.00      0.00         4
+         winkel_binnen       0.44      0.63      0.52       142
+          winkelstraat       0.39      0.42      0.41        57
+             woonkamer       0.49      0.45      0.47        73
+              woonwijk       0.37      0.37      0.37        84
+           zaalvoetbal       0.42      1.00      0.59        10
+        zeepkistenrace       0.60      0.50      0.55        12
+            ziekenhuis       0.55      0.48      0.51        25
+                 zwaan       0.60      0.50      0.55         6
+
+              accuracy                           0.58     10428
+             macro avg       0.53      0.46      0.47     10428
+          weighted avg       0.58      0.58      0.57     10428
+
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+Traceback (most recent call last):
+  File "/home/mjwever/HisVis2/src/train_clip.py", line 116, in <module>
+    main(args.training_data_path, args.param_sweep, args.output_path)
+  File "/home/mjwever/HisVis2/src/train_clip.py", line 35, in main
+    data = get_dls(128, 224, path, augment=True)
+  File "/home/mjwever/HisVis2/src/helper.py", line 69, in get_dls
+    return dblock.dataloaders(path, bs=bs)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/block.py", line 113, in dataloaders
+    dsets = self.datasets(source, verbose=verbose)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/block.py", line 110, in datasets
+    return Datasets(items, tfms=self._combine_type_tfms(), splits=splits, dl_type=self.dl_type, n_inp=self.n_inp, verbose=verbose)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/core.py", line 328, in __init__
+    self.tls = L(tls if tls else [TfmdLists(items, t, **kwargs) for t in L(ifnone(tfms,[None]))])
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/core.py", line 328, in <listcomp>
+    self.tls = L(tls if tls else [TfmdLists(items, t, **kwargs) for t in L(ifnone(tfms,[None]))])
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastcore/foundation.py", line 97, in __call__
+    return super().__call__(x, *args, **kwargs)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/core.py", line 254, in __init__
+    self.setup(train_setup=train_setup)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/data/core.py", line 278, in setup
+    types = L(t if is_listy(t) else [t] for t in self.types).concat().unique()
+TypeError: 'NoneType' object is not iterable
+starting training on cleaned set!
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+learning rate: 0.0003
+batch size: 64
+using places365, higher batch, focus on rotation and zoom
+/scratch/cleaned_final_set
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'biljart', 'binnen_zwembad', 'bloemen', 'bloementuin', 'boksen', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'carnaval', 'casino', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'helikopter', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kaartspel', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kermis', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'rugby', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'spoorweg', 'sport_overig', 'standbeeld', 'stemlokaal', 'straat', 'strand', 'tafel_tennis', 'tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'vuilnisbelt', 'waterpolo', 'waterweg', 'wielrennen', 'windmolen', 'windsurfen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan']
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+█epoch     train_loss  valid_loss  top_k_accuracy  accuracy  error_rate  time    
+██0         4.522376    3.457330    0.506282        0.298264  0.701736    05:13     
+██1         3.702232    2.877478    0.641412        0.373549  0.626451    05:11     
+██2         3.166330    2.488361    0.715642        0.426393  0.573607    05:10     
+██3         2.860294    2.216921    0.756785        0.470317  0.529683    05:12     
+██4         2.573283    2.072020    0.787091        0.491225  0.508775    05:10     
+██5         2.477274    1.949366    0.802340        0.514913  0.485087    05:11     
+██6         2.222657    1.894930    0.812890        0.521531  0.478469    05:12     
+██7         2.239623    1.842965    0.820178        0.531217  0.468783    05:11     
+██8         2.048402    1.790835    0.828426        0.537834  0.462166    05:10     
+██9         2.016798    1.771544    0.829098        0.543013  0.456987    05:12     
+██10        1.911341    1.734936    0.837441        0.546850  0.453150    05:11     
+██11        1.907075    1.714281    0.841565        0.550782  0.449218    05:11     
+██12        1.798979    1.700832    0.846456        0.555289  0.444711    05:12     
+██13        1.759201    1.675207    0.844251        0.557399  0.442601    05:11     
+██14        1.762672    1.669534    0.847128        0.554330  0.445670    05:10     
+██15        1.696462    1.652888    0.850868        0.560084  0.439916    05:12     
+██16        1.688209    1.658345    0.848087        0.559701  0.440299    05:12     
+██17        1.633283    1.643818    0.852882        0.567949  0.432051    05:11     
+██18        1.636808    1.638689    0.850484        0.567373  0.432627    05:12     
+██19        1.573324    1.619825    0.855375        0.570730  0.429270    05:10     
+██20        1.577400    1.629736    0.853266        0.563729  0.436271    05:10     
+██21        1.521814    1.623574    0.852786        0.569771  0.430229    05:12     
+██22        1.509624    1.622384    0.854129        0.570826  0.429174    05:12     
+██23        1.530095    1.609664    0.857006        0.572840  0.427160    05:12     
+██24        1.489791    1.612233    0.854321        0.574278  0.425722    05:11     
+██25        1.453904    1.609416    0.854129        0.571018  0.428982    05:10     
+██26        1.459082    1.608618    0.855663        0.571881  0.428119    05:13     
+██27        1.456333    1.610229    0.858157        0.573511  0.426489    05:12     
+██28        1.440946    1.606850    0.857198        0.577635  0.422365    05:12     
+No improvement since epoch 23: early stopping
+█/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+                        precision    recall  f1-score   support
+
+                 akker       0.46      0.68      0.55        44
+           amfitheater       0.47      0.70      0.56        10
+                  aula       0.33      0.19      0.24        32
+                  auto       0.56      0.50      0.53        98
+          auto_ongeluk       0.64      0.55      0.59        58
+              bakkerij       0.38      0.32      0.34        19
+     basketbal_korfbal       0.80      0.49      0.61        57
+         begraafplaats       0.83      0.45      0.59        11
+            begrafenis       0.52      0.48      0.50        27
+bibliotheek_boekwinkel       0.52      0.44      0.48        25
+               biljart       0.82      0.64      0.72        14
+        binnen_zwembad       0.78      0.69      0.73        26
+               bloemen       0.33      0.33      0.33        21
+           bloementuin       0.52      0.54      0.53        28
+                boksen       1.00      0.20      0.33         5
+     borden_gevelsteen       0.67      0.50      0.57       125
+              bos_park       0.46      0.46      0.46        82
+                 boten       0.60      0.76      0.67       136
+            bouwplaats       0.58      0.72      0.64       396
+                 brand       0.66      0.59      0.62       114
+                  brug       0.41      0.30      0.34        37
+              bruiloft       0.38      0.13      0.20        45
+        buiten_zwembad       0.52      0.55      0.53        22
+             bus_truck       0.55      0.70      0.61       109
+                  cafe       0.45      0.40      0.42        75
+              carnaval       0.30      0.09      0.14        33
+                casino       0.00      0.00      0.00         1
+               catwalk       0.86      0.32      0.46        19
+                circus       0.77      0.55      0.64        49
+               cricket       0.96      0.91      0.93        54
+       dansende_mensen       0.42      0.39      0.41        79
+          demonstratie       0.65      0.38      0.48        91
+         dieren_overig       0.40      0.17      0.24        47
+                duinen       0.64      0.36      0.46        25
+                  eend       1.00      0.11      0.20         9
+               etalage       0.51      0.54      0.52        52
+         etende_mensen       0.55      0.58      0.57        96
+               fabriek       0.53      0.62      0.57       143
+      fietsende_mensen       0.38      0.50      0.43        60
+       garage_showroom       0.61      0.38      0.47        29
+                gebouw       0.59      0.73      0.66       361
+          geestelijken       0.33      0.20      0.25        51
+                  golf       0.38      0.21      0.27        14
+         groepsportret       0.51      0.60      0.56       496
+            gymnastiek       0.57      0.45      0.51        53
+               handbal       0.51      0.74      0.60        38
+             hardlopen       0.65      0.55      0.60        31
+                 haven       0.42      0.48      0.45        52
+            helikopter       0.71      0.71      0.71         7
+            herdenking       0.55      0.41      0.47        29
+ historisch_toneelstuk       0.31      0.22      0.25        37
+                hockey       0.90      0.47      0.62        40
+                  hond       0.52      0.52      0.52        48
+               honkbal       0.78      0.74      0.76       141
+                huisje       0.28      0.26      0.27        27
+             kaartspel       0.00      0.00      0.00         5
+                  kade       0.32      0.22      0.26        27
+              kamperen       0.57      0.57      0.57        28
+               kantoor       0.44      0.58      0.50       117
+                kapper       0.67      0.25      0.36        16
+                   kat       1.00      0.19      0.32        16
+           kerk_binnen       0.58      0.67      0.62       104
+           kerk_buiten       0.62      0.61      0.62        87
+                kermis       0.61      0.54      0.57        41
+              kerstmis       0.71      0.42      0.53        36
+                keuken       0.69      0.60      0.64        42
+            klaslokaal       0.57      0.49      0.53        93
+                   koe       0.25      0.07      0.11        15
+                konijn       1.00      0.22      0.36         9
+             kunstwerk       0.48      0.60      0.53       162
+             luchtfoto       0.78      0.88      0.83        60
+              maquette       0.71      0.66      0.68       103
+                 markt       0.52      0.51      0.52       123
+    mensen_op_een_boot       0.38      0.34      0.36        61
+        mensen_op_trap       0.50      0.38      0.43        13
+           mensenmassa       0.43      0.49      0.46       177
+              militair       0.59      0.29      0.39        34
+            motorfiets       0.41      0.25      0.31        28
+       muziek_optreden       0.51      0.53      0.52       319
+      ongeluk_brancard       0.67      0.25      0.36         8
+    ontvangst_afscheid       0.24      0.17      0.20        63
+             opgraving       0.25      0.30      0.27        10
+               optocht       0.42      0.53      0.47        85
+                 paard       0.67      0.76      0.71        74
+           plattegrond       0.50      0.31      0.38        13
+               portret       0.72      0.77      0.74      1452
+                  race       0.60      0.44      0.51        27
+                roeien       0.62      0.48      0.54        21
+                 rugby       0.00      0.00      0.00         3
+             schaatsen       0.71      0.71      0.71        28
+        schaken_dammen       0.70      0.68      0.69        59
+           scheepswerf       0.65      0.39      0.49        33
+           sinterklaas       0.68      0.48      0.56       132
+              slagerij       0.33      0.36      0.35        11
+       sneeuwlandschap       0.57      0.54      0.56        37
+                speech       0.52      0.39      0.45       120
+             speeltuin       0.46      0.26      0.33        42
+              spoorweg       0.00      0.00      0.00         3
+          sport_overig       0.25      0.06      0.10        82
+            standbeeld       0.44      0.44      0.44        66
+            stemlokaal       0.00      0.00      0.00         8
+                straat       0.48      0.55      0.51       271
+                strand       0.70      0.59      0.64        82
+          tafel_tennis       0.79      0.71      0.75        21
+                tennis       0.68      0.63      0.65        43
+       tentoonstelling       0.43      0.48      0.46       124
+                terras       0.66      0.54      0.59        35
+               theater       0.29      0.27      0.28        98
+                 toren       0.60      0.38      0.46        16
+                  tram       0.45      0.24      0.31        21
+                 trein       0.47      0.26      0.34        34
+         trein_ongeluk       0.65      0.65      0.65        17
+         trein_station       0.43      0.40      0.41        15
+  uitreiking_huldiging       0.56      0.61      0.58       392
+            vechtsport       0.67      0.62      0.64        13
+        vergaderruimte       0.53      0.72      0.61       144
+           vijver_plas       0.46      0.46      0.46        24
+              visserij       0.54      0.44      0.49        70
+           vlag_hijsen       0.50      0.24      0.32        17
+             vliegtuig       0.72      0.55      0.62        42
+               voetbal       0.84      0.83      0.83       368
+          voetbal_team       0.67      0.78      0.72        40
+                vogels       0.60      0.08      0.15        36
+             volleybal       0.86      0.77      0.81        39
+           vuilnisbelt       1.00      0.20      0.33         5
+             waterpolo       0.77      0.67      0.71        15
+              waterweg       0.42      0.42      0.42        59
+            wielrennen       0.54      0.60      0.57        42
+             windmolen       0.94      0.83      0.88        18
+            windsurfen       0.00      0.00      0.00         2
+         winkel_binnen       0.50      0.51      0.51       139
+          winkelstraat       0.40      0.62      0.49        53
+             woonkamer       0.47      0.45      0.46        82
+              woonwijk       0.32      0.36      0.34        61
+           zaalvoetbal       0.50      0.72      0.59        18
+        zeepkistenrace       0.44      0.44      0.44         9
+            ziekenhuis       0.41      0.45      0.43        33
+                 zwaan       0.20      0.12      0.15         8
+
+              accuracy                           0.58     10427
+             macro avg       0.54      0.45      0.47     10427
+          weighted avg       0.58      0.58      0.57     10427
+
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+  0%|          | 0/325 [00:00<?, ?it/s]  0%|          | 1/325 [00:05<28:01,  5.19s/it]  1%|          | 2/325 [00:05<12:26,  2.31s/it]  1%|          | 3/325 [00:05<07:25,  1.38s/it]  1%|          | 4/325 [00:06<05:03,  1.06it/s]  2%|▏         | 5/325 [00:06<03:45,  1.42it/s]  2%|▏         | 6/325 [00:06<03:00,  1.77it/s]  2%|▏         | 7/325 [00:06<02:29,  2.13it/s]  2%|▏         | 8/325 [00:07<02:08,  2.47it/s]  3%|▎         | 9/325 [00:07<01:57,  2.69it/s]  3%|▎         | 10/325 [00:07<01:47,  2.94it/s]  3%|▎         | 11/325 [00:07<01:40,  3.14it/s]  4%|▎         | 12/325 [00:08<01:34,  3.31it/s]  4%|▍         | 13/325 [00:08<01:32,  3.37it/s]  4%|▍         | 14/325 [00:08<01:33,  3.32it/s]  5%|▍         | 15/325 [00:09<01:30,  3.43it/s]  5%|▍         | 16/325 [00:09<01:27,  3.51it/s]  5%|▌         | 17/325 [00:09<01:26,  3.56it/s]  6%|▌         | 18/325 [00:09<01:26,  3.54it/s]  6%|▌         | 19/325 [00:10<01:25,  3.57it/s]  6%|▌         | 20/325 [00:10<01:26,  3.51it/s]  6%|▋         | 21/325 [00:10<01:26,  3.51it/s]  7%|▋         | 22/325 [00:11<01:25,  3.52it/s]  7%|▋         | 23/325 [00:11<01:24,  3.56it/s]  7%|▋         | 24/325 [00:11<01:31,  3.29it/s]  8%|▊         | 25/325 [00:11<01:26,  3.49it/s]  8%|▊         | 26/325 [00:12<01:24,  3.55it/s]  8%|▊         | 27/325 [00:12<01:31,  3.24it/s]  9%|▊         | 28/325 [00:12<01:28,  3.34it/s]  9%|▉         | 29/325 [00:13<01:28,  3.34it/s]  9%|▉         | 30/325 [00:13<01:28,  3.34it/s] 10%|▉         | 31/325 [00:13<01:25,  3.43it/s] 10%|▉         | 32/325 [00:14<01:25,  3.42it/s] 10%|█         | 33/325 [00:14<01:21,  3.59it/s] 10%|█         | 34/325 [00:14<01:20,  3.60it/s] 11%|█         | 35/325 [00:14<01:19,  3.63it/s] 11%|█         | 36/325 [00:15<01:19,  3.63it/s] 11%|█▏        | 37/325 [00:15<01:19,  3.64it/s] 12%|█▏        | 38/325 [00:15<01:18,  3.65it/s] 12%|█▏        | 39/325 [00:15<01:18,  3.66it/s] 12%|█▏        | 40/325 [00:16<01:17,  3.67it/s] 13%|█▎        | 41/325 [00:16<01:18,  3.63it/s] 13%|█▎        | 42/325 [00:16<01:16,  3.68it/s] 13%|█▎        | 43/325 [00:17<01:16,  3.67it/s] 14%|█▎        | 44/325 [00:17<01:17,  3.64it/s] 14%|█▍        | 45/325 [00:17<01:16,  3.64it/s] 14%|█▍        | 46/325 [00:17<01:16,  3.63it/s] 14%|█▍        | 47/325 [00:18<01:16,  3.61it/s] 15%|█▍        | 48/325 [00:18<01:16,  3.62it/s] 15%|█▌        | 49/325 [00:18<01:15,  3.64it/s] 15%|█▌        | 50/325 [00:18<01:15,  3.65it/s] 16%|█▌        | 51/325 [00:19<01:15,  3.65it/s] 16%|█▌        | 52/325 [00:19<01:14,  3.66it/s] 16%|█▋        | 53/325 [00:19<01:14,  3.67it/s] 17%|█▋        | 54/325 [00:20<01:14,  3.66it/s] 17%|█▋        | 55/325 [00:20<01:13,  3.66it/s] 17%|█▋        | 56/325 [00:20<01:14,  3.63it/s] 18%|█▊        | 57/325 [00:20<01:13,  3.63it/s] 18%|█▊        | 58/325 [00:21<01:15,  3.54it/s] 18%|█▊        | 59/325 [00:21<01:16,  3.50it/s] 18%|█▊        | 60/325 [00:21<01:16,  3.45it/s] 19%|█▉        | 61/325 [00:22<01:16,  3.46it/s] 19%|█▉        | 62/325 [00:22<01:15,  3.47it/s] 19%|█▉        | 63/325 [00:22<01:15,  3.45it/s] 20%|█▉        | 64/325 [00:22<01:14,  3.50it/s] 20%|██        | 65/325 [00:23<01:13,  3.55it/s] 20%|██        | 66/325 [00:23<01:12,  3.58it/s] 21%|██        | 67/325 [00:23<01:11,  3.60it/s] 21%|██        | 68/325 [00:24<01:10,  3.62it/s] 21%|██        | 69/325 [00:24<01:10,  3.62it/s] 22%|██▏       | 70/325 [00:24<01:10,  3.61it/s] 22%|██▏       | 71/325 [00:24<01:10,  3.59it/s] 22%|██▏       | 72/325 [00:25<01:10,  3.59it/s] 22%|██▏       | 73/325 [00:25<01:12,  3.50it/s] 23%|██▎       | 74/325 [00:25<01:12,  3.48it/s] 23%|██▎       | 75/325 [00:25<01:11,  3.49it/s] 23%|██▎       | 76/325 [00:26<01:11,  3.49it/s] 24%|██▎       | 77/325 [00:26<01:10,  3.54it/s] 24%|██▍       | 78/325 [00:26<01:09,  3.57it/s] 24%|██▍       | 79/325 [00:27<01:08,  3.57it/s] 25%|██▍       | 80/325 [00:27<01:07,  3.60it/s] 25%|██▍       | 81/325 [00:27<01:07,  3.59it/s] 25%|██▌       | 82/325 [00:27<01:07,  3.60it/s] 26%|██▌       | 83/325 [00:28<01:09,  3.50it/s] 26%|██▌       | 84/325 [00:28<01:07,  3.57it/s] 26%|██▌       | 85/325 [00:28<01:08,  3.48it/s] 26%|██▋       | 86/325 [00:29<01:07,  3.52it/s] 27%|██▋       | 87/325 [00:29<01:06,  3.57it/s] 27%|██▋       | 88/325 [00:29<01:06,  3.56it/s] 27%|██▋       | 89/325 [00:29<01:05,  3.63it/s] 28%|██▊       | 90/325 [00:30<01:04,  3.64it/s] 28%|██▊       | 91/325 [00:30<01:04,  3.65it/s] 28%|██▊       | 92/325 [00:30<01:03,  3.66it/s] 29%|██▊       | 93/325 [00:31<01:03,  3.65it/s] 29%|██▉       | 94/325 [00:31<01:03,  3.66it/s] 29%|██▉       | 95/325 [00:31<01:03,  3.64it/s] 30%|██▉       | 96/325 [00:31<01:02,  3.64it/s] 30%|██▉       | 97/325 [00:32<01:03,  3.61it/s] 30%|███       | 98/325 [00:32<01:02,  3.63it/s] 30%|███       | 99/325 [00:32<01:02,  3.64it/s] 31%|███       | 100/325 [00:32<01:01,  3.66it/s] 31%|███       | 101/325 [00:33<01:01,  3.67it/s] 31%|███▏      | 102/325 [00:33<01:01,  3.64it/s] 32%|███▏      | 103/325 [00:33<01:00,  3.65it/s] 32%|███▏      | 104/325 [00:34<01:00,  3.65it/s] 32%|███▏      | 105/325 [00:34<01:00,  3.64it/s] 33%|███▎      | 106/325 [00:34<01:00,  3.64it/s] 33%|███▎      | 107/325 [00:34<00:59,  3.64it/s] 33%|███▎      | 108/325 [00:35<01:01,  3.53it/s] 34%|███▎      | 109/325 [00:35<01:01,  3.53it/s] 34%|███▍      | 110/325 [00:35<01:00,  3.57it/s] 34%|███▍      | 111/325 [00:35<01:00,  3.56it/s] 34%|███▍      | 112/325 [00:36<00:59,  3.59it/s] 35%|███▍      | 113/325 [00:36<00:58,  3.63it/s] 35%|███▌      | 114/325 [00:36<00:58,  3.63it/s] 35%|███▌      | 115/325 [00:37<00:58,  3.62it/s] 36%|███▌      | 116/325 [00:37<00:57,  3.63it/s] 36%|███▌      | 117/325 [00:37<00:57,  3.62it/s] 36%|███▋      | 118/325 [00:37<00:56,  3.66it/s] 37%|███▋      | 119/325 [00:38<00:57,  3.59it/s] 37%|███▋      | 120/325 [00:38<00:57,  3.55it/s] 37%|███▋      | 121/325 [00:38<00:58,  3.48it/s] 38%|███▊      | 122/325 [00:39<00:56,  3.57it/s] 38%|███▊      | 123/325 [00:39<00:56,  3.59it/s] 38%|███▊      | 124/325 [00:39<00:55,  3.62it/s] 38%|███▊      | 125/325 [00:39<00:54,  3.64it/s] 39%|███▉      | 126/325 [00:40<00:54,  3.63it/s] 39%|███▉      | 127/325 [00:40<00:54,  3.64it/s] 39%|███▉      | 128/325 [00:40<00:53,  3.65it/s] 40%|███▉      | 129/325 [00:40<00:53,  3.67it/s] 40%|████      | 130/325 [00:41<00:57,  3.40it/s] 40%|████      | 131/325 [00:41<00:56,  3.45it/s] 41%|████      | 132/325 [00:41<00:55,  3.51it/s] 41%|████      | 133/325 [00:42<00:59,  3.22it/s] 41%|████      | 134/325 [00:42<00:55,  3.47it/s] 42%|████▏     | 135/325 [00:42<00:54,  3.50it/s] 42%|████▏     | 136/325 [00:43<00:54,  3.45it/s] 42%|████▏     | 137/325 [00:43<00:53,  3.50it/s] 42%|████▏     | 138/325 [00:43<00:53,  3.52it/s] 43%|████▎     | 139/325 [00:43<00:52,  3.56it/s] 43%|████▎     | 140/325 [00:44<00:53,  3.46it/s] 43%|████▎     | 141/325 [00:44<00:56,  3.28it/s] 44%|████▎     | 142/325 [00:44<00:53,  3.43it/s] 44%|████▍     | 143/325 [00:45<00:53,  3.40it/s] 44%|████▍     | 144/325 [00:45<00:52,  3.42it/s] 45%|████▍     | 145/325 [00:45<00:53,  3.36it/s] 45%|████▍     | 146/325 [00:45<00:52,  3.44it/s] 45%|████▌     | 147/325 [00:46<00:50,  3.51it/s] 46%|████▌     | 148/325 [00:46<00:50,  3.54it/s] 46%|████▌     | 149/325 [00:46<00:49,  3.59it/s] 46%|████▌     | 150/325 [00:47<00:48,  3.58it/s] 46%|████▋     | 151/325 [00:47<00:48,  3.59it/s] 47%|████▋     | 152/325 [00:47<00:47,  3.61it/s] 47%|████▋     | 153/325 [00:47<00:47,  3.62it/s] 47%|████▋     | 154/325 [00:48<00:47,  3.62it/s] 48%|████▊     | 155/325 [00:48<00:47,  3.60it/s] 48%|████▊     | 156/325 [00:48<00:47,  3.59it/s] 48%|████▊     | 157/325 [00:49<00:47,  3.52it/s] 49%|████▊     | 158/325 [00:49<00:46,  3.61it/s] 49%|████▉     | 159/325 [00:49<00:45,  3.62it/s] 49%|████▉     | 160/325 [00:49<00:45,  3.61it/s] 50%|████▉     | 161/325 [00:50<00:45,  3.62it/s] 50%|████▉     | 162/325 [00:50<00:45,  3.60it/s] 50%|█████     | 163/325 [00:50<00:44,  3.61it/s] 50%|█████     | 164/325 [00:50<00:45,  3.53it/s] 51%|█████     | 165/325 [00:51<00:45,  3.54it/s] 51%|█████     | 166/325 [00:51<00:46,  3.40it/s] 51%|█████▏    | 167/325 [00:51<00:46,  3.43it/s] 52%|█████▏    | 168/325 [00:52<00:44,  3.50it/s] 52%|█████▏    | 169/325 [00:52<00:44,  3.52it/s] 52%|█████▏    | 170/325 [00:52<00:44,  3.52it/s] 53%|█████▎    | 171/325 [00:52<00:43,  3.56it/s] 53%|█████▎    | 172/325 [00:53<00:42,  3.58it/s] 53%|█████▎    | 173/325 [00:53<00:42,  3.61it/s] 54%|█████▎    | 174/325 [00:53<00:41,  3.61it/s] 54%|█████▍    | 175/325 [00:54<00:42,  3.51it/s] 54%|█████▍    | 176/325 [00:54<00:43,  3.44it/s] 54%|█████▍    | 177/325 [00:54<00:43,  3.43it/s] 55%|█████▍    | 178/325 [00:54<00:44,  3.33it/s] 55%|█████▌    | 179/325 [00:55<00:42,  3.42it/s] 55%|█████▌    | 180/325 [00:55<00:46,  3.11it/s] 56%|█████▌    | 181/325 [00:55<00:47,  3.06it/s] 56%|█████▌    | 182/325 [00:56<00:46,  3.05it/s] 56%|█████▋    | 183/325 [00:56<00:47,  2.99it/s] 57%|█████▋    | 184/325 [00:56<00:44,  3.18it/s] 57%|█████▋    | 185/325 [00:57<00:42,  3.31it/s] 57%|█████▋    | 186/325 [00:57<00:40,  3.40it/s] 58%|█████▊    | 187/325 [00:57<00:40,  3.45it/s] 58%|█████▊    | 188/325 [00:58<00:39,  3.46it/s] 58%|█████▊    | 189/325 [00:58<00:39,  3.43it/s] 58%|█████▊    | 190/325 [00:58<00:39,  3.46it/s] 59%|█████▉    | 191/325 [00:58<00:38,  3.49it/s] 59%|█████▉    | 192/325 [00:59<00:38,  3.47it/s] 59%|█████▉    | 193/325 [00:59<00:38,  3.41it/s] 60%|█████▉    | 194/325 [00:59<00:39,  3.35it/s] 60%|██████    | 195/325 [01:00<00:37,  3.44it/s] 60%|██████    | 196/325 [01:00<00:36,  3.49it/s] 61%|██████    | 197/325 [01:00<00:39,  3.22it/s] 61%|██████    | 198/325 [01:01<00:37,  3.34it/s] 61%|██████    | 199/325 [01:01<00:36,  3.42it/s] 62%|██████▏   | 200/325 [01:01<00:36,  3.46it/s] 62%|██████▏   | 201/325 [01:01<00:35,  3.51it/s] 62%|██████▏   | 202/325 [01:02<00:34,  3.55it/s] 62%|██████▏   | 203/325 [01:02<00:35,  3.43it/s] 63%|██████▎   | 204/325 [01:02<00:35,  3.43it/s] 63%|██████▎   | 205/325 [01:03<00:35,  3.42it/s] 63%|██████▎   | 206/325 [01:03<00:34,  3.48it/s] 64%|██████▎   | 207/325 [01:03<00:33,  3.52it/s] 64%|██████▍   | 208/325 [01:03<00:33,  3.54it/s] 64%|██████▍   | 209/325 [01:04<00:32,  3.59it/s] 65%|██████▍   | 210/325 [01:04<00:32,  3.58it/s] 65%|██████▍   | 211/325 [01:04<00:31,  3.61it/s] 65%|██████▌   | 212/325 [01:04<00:31,  3.55it/s] 66%|██████▌   | 213/325 [01:05<00:31,  3.58it/s] 66%|██████▌   | 214/325 [01:05<00:30,  3.63it/s] 66%|██████▌   | 215/325 [01:05<00:30,  3.56it/s] 66%|██████▋   | 216/325 [01:06<00:30,  3.55it/s] 67%|██████▋   | 217/325 [01:06<00:31,  3.39it/s] 67%|██████▋   | 218/325 [01:06<00:31,  3.44it/s] 67%|██████▋   | 219/325 [01:06<00:30,  3.51it/s] 68%|██████▊   | 220/325 [01:07<00:29,  3.55it/s] 68%|██████▊   | 221/325 [01:07<00:29,  3.58it/s] 68%|██████▊   | 222/325 [01:07<00:28,  3.59it/s] 69%|██████▊   | 223/325 [01:08<00:28,  3.58it/s] 69%|██████▉   | 224/325 [01:08<00:27,  3.61it/s] 69%|██████▉   | 225/325 [01:08<00:29,  3.38it/s] 70%|██████▉   | 226/325 [01:09<00:30,  3.26it/s] 70%|██████▉   | 227/325 [01:09<00:28,  3.42it/s] 70%|███████   | 228/325 [01:09<00:27,  3.48it/s] 70%|███████   | 229/325 [01:09<00:27,  3.44it/s] 71%|███████   | 230/325 [01:10<00:29,  3.19it/s] 71%|███████   | 231/325 [01:10<00:28,  3.29it/s] 71%|███████▏  | 232/325 [01:10<00:27,  3.37it/s] 72%|███████▏  | 233/325 [01:11<00:27,  3.40it/s] 72%|███████▏  | 234/325 [01:11<00:26,  3.46it/s] 72%|███████▏  | 235/325 [01:11<00:25,  3.47it/s] 73%|███████▎  | 236/325 [01:11<00:25,  3.49it/s] 73%|███████▎  | 237/325 [01:12<00:24,  3.55it/s] 73%|███████▎  | 238/325 [01:12<00:24,  3.62it/s] 74%|███████▎  | 239/325 [01:12<00:25,  3.41it/s] 74%|███████▍  | 240/325 [01:13<00:25,  3.39it/s] 74%|███████▍  | 241/325 [01:13<00:25,  3.34it/s] 74%|███████▍  | 242/325 [01:13<00:23,  3.47it/s] 75%|███████▍  | 243/325 [01:13<00:23,  3.52it/s] 75%|███████▌  | 244/325 [01:14<00:22,  3.55it/s] 75%|███████▌  | 245/325 [01:14<00:22,  3.57it/s] 76%|███████▌  | 246/325 [01:14<00:22,  3.55it/s] 76%|███████▌  | 247/325 [01:15<00:22,  3.52it/s] 76%|███████▋  | 248/325 [01:15<00:21,  3.56it/s] 77%|███████▋  | 249/325 [01:15<00:21,  3.60it/s] 77%|███████▋  | 250/325 [01:15<00:20,  3.64it/s] 77%|███████▋  | 251/325 [01:16<00:20,  3.65it/s] 78%|███████▊  | 252/325 [01:16<00:19,  3.65it/s] 78%|███████▊  | 253/325 [01:16<00:19,  3.68it/s] 78%|███████▊  | 254/325 [01:16<00:19,  3.55it/s] 78%|███████▊  | 255/325 [01:17<00:19,  3.56it/s] 79%|███████▉  | 256/325 [01:17<00:19,  3.60it/s] 79%|███████▉  | 257/325 [01:17<00:18,  3.61it/s] 79%|███████▉  | 258/325 [01:18<00:18,  3.59it/s] 80%|███████▉  | 259/325 [01:18<00:18,  3.62it/s] 80%|████████  | 260/325 [01:18<00:18,  3.61it/s] 80%|████████  | 261/325 [01:18<00:17,  3.61it/s] 81%|████████  | 262/325 [01:19<00:17,  3.59it/s] 81%|████████  | 263/325 [01:19<00:17,  3.59it/s] 81%|████████  | 264/325 [01:19<00:16,  3.60it/s] 82%|████████▏ | 265/325 [01:20<00:16,  3.60it/s] 82%|████████▏ | 266/325 [01:20<00:16,  3.58it/s] 82%|████████▏ | 267/325 [01:20<00:16,  3.59it/s] 82%|████████▏ | 268/325 [01:20<00:15,  3.61it/s] 83%|████████▎ | 269/325 [01:21<00:15,  3.63it/s] 83%|████████▎ | 270/325 [01:21<00:15,  3.61it/s] 83%|████████▎ | 271/325 [01:21<00:14,  3.61it/s] 84%|████████▎ | 272/325 [01:21<00:14,  3.60it/s] 84%|████████▍ | 273/325 [01:22<00:14,  3.61it/s] 84%|████████▍ | 274/325 [01:22<00:14,  3.61it/s] 85%|████████▍ | 275/325 [01:22<00:13,  3.61it/s] 85%|████████▍ | 276/325 [01:23<00:13,  3.60it/s] 85%|████████▌ | 277/325 [01:23<00:13,  3.59it/s] 86%|████████▌ | 278/325 [01:23<00:13,  3.60it/s] 86%|████████▌ | 279/325 [01:23<00:12,  3.61it/s] 86%|████████▌ | 280/325 [01:24<00:12,  3.62it/s] 86%|████████▋ | 281/325 [01:24<00:12,  3.62it/s] 87%|████████▋ | 282/325 [01:24<00:11,  3.61it/s] 87%|████████▋ | 283/325 [01:25<00:11,  3.63it/s] 87%|████████▋ | 284/325 [01:25<00:11,  3.63it/s] 88%|████████▊ | 285/325 [01:25<00:11,  3.63it/s] 88%|████████▊ | 286/325 [01:25<00:10,  3.61it/s] 88%|████████▊ | 287/325 [01:26<00:10,  3.62it/s] 89%|████████▊ | 288/325 [01:26<00:10,  3.62it/s] 89%|████████▉ | 289/325 [01:26<00:09,  3.61it/s] 89%|████████▉ | 290/325 [01:26<00:09,  3.62it/s] 90%|████████▉ | 291/325 [01:27<00:09,  3.62it/s] 90%|████████▉ | 292/325 [01:27<00:09,  3.63it/s] 90%|█████████ | 293/325 [01:27<00:08,  3.62it/s] 90%|█████████ | 294/325 [01:28<00:08,  3.59it/s] 91%|█████████ | 295/325 [01:28<00:08,  3.59it/s] 91%|█████████ | 296/325 [01:28<00:08,  3.61it/s] 91%|█████████▏| 297/325 [01:28<00:07,  3.58it/s] 92%|█████████▏| 298/325 [01:29<00:07,  3.63it/s] 92%|█████████▏| 299/325 [01:29<00:07,  3.61it/s] 92%|█████████▏| 300/325 [01:29<00:06,  3.59it/s] 93%|█████████▎| 301/325 [01:30<00:06,  3.58it/s] 93%|█████████▎| 302/325 [01:30<00:06,  3.56it/s] 93%|█████████▎| 303/325 [01:30<00:06,  3.56it/s] 94%|█████████▎| 304/325 [01:30<00:05,  3.59it/s] 94%|█████████▍| 305/325 [01:31<00:05,  3.61it/s] 94%|█████████▍| 306/325 [01:31<00:05,  3.57it/s] 94%|█████████▍| 307/325 [01:31<00:05,  3.60it/s] 95%|█████████▍| 308/325 [01:31<00:04,  3.62it/s] 95%|█████████▌| 309/325 [01:32<00:04,  3.61it/s] 95%|█████████▌| 310/325 [01:32<00:04,  3.66it/s] 96%|█████████▌| 311/325 [01:32<00:03,  3.58it/s] 96%|█████████▌| 312/325 [01:33<00:03,  3.71it/s] 96%|█████████▋| 313/325 [01:33<00:03,  3.69it/s] 97%|█████████▋| 314/325 [01:33<00:02,  3.68it/s] 97%|█████████▋| 315/325 [01:33<00:02,  3.68it/s] 97%|█████████▋| 316/325 [01:34<00:02,  3.67it/s] 98%|█████████▊| 317/325 [01:34<00:02,  3.67it/s] 98%|█████████▊| 318/325 [01:34<00:01,  3.66it/s] 98%|█████████▊| 319/325 [01:34<00:01,  3.66it/s] 98%|█████████▊| 320/325 [01:35<00:01,  3.68it/s] 99%|█████████▉| 321/325 [01:35<00:01,  3.66it/s] 99%|█████████▉| 322/325 [01:35<00:00,  3.66it/s] 99%|█████████▉| 323/325 [01:36<00:00,  3.67it/s]100%|█████████▉| 324/325 [01:36<00:00,  3.66it/s]100%|██████████| 325/325 [01:36<00:00,  3.67it/s]100%|██████████| 325/325 [01:36<00:00,  3.36it/s]
+  0%|          | 0/82 [00:00<?, ?it/s]  1%|          | 1/82 [00:03<04:52,  3.61s/it]  2%|▏         | 2/82 [00:03<02:13,  1.67s/it]  4%|▎         | 3/82 [00:04<01:22,  1.05s/it]  5%|▍         | 4/82 [00:04<00:58,  1.34it/s]  6%|▌         | 5/82 [00:04<00:43,  1.76it/s]  7%|▋         | 6/82 [00:05<00:36,  2.07it/s]  9%|▊         | 7/82 [00:05<00:31,  2.41it/s] 10%|▉         | 8/82 [00:05<00:26,  2.82it/s] 11%|█         | 9/82 [00:05<00:24,  3.01it/s] 12%|█▏        | 10/82 [00:06<00:21,  3.30it/s] 13%|█▎        | 11/82 [00:06<00:21,  3.25it/s] 15%|█▍        | 12/82 [00:06<00:20,  3.44it/s] 16%|█▌        | 13/82 [00:06<00:19,  3.59it/s] 17%|█▋        | 14/82 [00:07<00:20,  3.36it/s] 18%|█▊        | 15/82 [00:07<00:19,  3.39it/s] 20%|█▉        | 16/82 [00:07<00:19,  3.33it/s] 21%|██        | 17/82 [00:08<00:17,  3.61it/s] 22%|██▏       | 18/82 [00:08<00:17,  3.70it/s] 23%|██▎       | 19/82 [00:08<00:18,  3.41it/s] 24%|██▍       | 20/82 [00:08<00:17,  3.52it/s] 26%|██▌       | 21/82 [00:09<00:17,  3.53it/s] 27%|██▋       | 22/82 [00:09<00:16,  3.63it/s] 28%|██▊       | 23/82 [00:09<00:15,  3.72it/s] 29%|██▉       | 24/82 [00:10<00:15,  3.78it/s] 30%|███       | 25/82 [00:10<00:16,  3.50it/s] 32%|███▏      | 26/82 [00:10<00:15,  3.67it/s] 33%|███▎      | 27/82 [00:10<00:14,  3.73it/s] 34%|███▍      | 28/82 [00:11<00:14,  3.78it/s] 35%|███▌      | 29/82 [00:11<00:13,  3.83it/s] 37%|███▋      | 30/82 [00:11<00:13,  3.85it/s] 38%|███▊      | 31/82 [00:11<00:13,  3.87it/s] 39%|███▉      | 32/82 [00:12<00:12,  3.89it/s] 40%|████      | 33/82 [00:12<00:12,  3.91it/s] 41%|████▏     | 34/82 [00:12<00:12,  3.90it/s] 43%|████▎     | 35/82 [00:12<00:11,  3.92it/s] 44%|████▍     | 36/82 [00:13<00:11,  3.92it/s] 45%|████▌     | 37/82 [00:13<00:11,  3.92it/s] 46%|████▋     | 38/82 [00:13<00:11,  3.91it/s] 48%|████▊     | 39/82 [00:14<00:20,  2.06it/s] 49%|████▉     | 40/82 [00:14<00:17,  2.44it/s] 50%|█████     | 41/82 [00:15<00:14,  2.76it/s] 51%|█████     | 42/82 [00:15<00:13,  3.02it/s] 52%|█████▏    | 43/82 [00:15<00:11,  3.25it/s] 54%|█████▎    | 44/82 [00:15<00:11,  3.44it/s] 55%|█████▍    | 45/82 [00:16<00:10,  3.58it/s] 56%|█████▌    | 46/82 [00:16<00:09,  3.67it/s] 57%|█████▋    | 47/82 [00:16<00:09,  3.75it/s] 59%|█████▊    | 48/82 [00:16<00:09,  3.73it/s] 60%|█████▉    | 49/82 [00:17<00:08,  3.82it/s] 61%|██████    | 50/82 [00:17<00:08,  3.85it/s] 62%|██████▏   | 51/82 [00:17<00:10,  3.01it/s] 63%|██████▎   | 52/82 [00:18<00:09,  3.18it/s] 65%|██████▍   | 53/82 [00:18<00:08,  3.37it/s] 66%|██████▌   | 54/82 [00:18<00:07,  3.51it/s] 67%|██████▋   | 55/82 [00:18<00:07,  3.64it/s] 68%|██████▊   | 56/82 [00:19<00:06,  3.73it/s] 70%|██████▉   | 57/82 [00:19<00:06,  3.79it/s] 71%|███████   | 58/82 [00:19<00:06,  3.78it/s] 72%|███████▏  | 59/82 [00:20<00:06,  3.80it/s] 73%|███████▎  | 60/82 [00:20<00:05,  3.73it/s] 74%|███████▍  | 61/82 [00:20<00:05,  3.75it/s] 76%|███████▌  | 62/82 [00:20<00:05,  3.89it/s] 77%|███████▋  | 63/82 [00:21<00:05,  3.34it/s] 78%|███████▊  | 64/82 [00:21<00:05,  3.52it/s] 79%|███████▉  | 65/82 [00:21<00:04,  3.64it/s] 80%|████████  | 66/82 [00:21<00:04,  3.78it/s] 82%|████████▏ | 67/82 [00:22<00:03,  3.83it/s] 83%|████████▎ | 68/82 [00:22<00:03,  3.88it/s] 84%|████████▍ | 69/82 [00:22<00:03,  3.91it/s] 85%|████████▌ | 70/82 [00:22<00:03,  3.90it/s] 87%|████████▋ | 71/82 [00:23<00:02,  3.93it/s] 88%|████████▊ | 72/82 [00:23<00:02,  3.94it/s] 89%|████████▉ | 73/82 [00:23<00:02,  3.93it/s] 90%|█████████ | 74/82 [00:23<00:02,  3.90it/s] 91%|█████████▏| 75/82 [00:24<00:01,  3.90it/s] 93%|█████████▎| 76/82 [00:24<00:01,  3.89it/s] 94%|█████████▍| 77/82 [00:24<00:01,  3.91it/s] 95%|█████████▌| 78/82 [00:24<00:01,  3.90it/s] 96%|█████████▋| 79/82 [00:25<00:00,  3.91it/s] 98%|█████████▊| 80/82 [00:25<00:00,  3.92it/s] 99%|█████████▉| 81/82 [00:25<00:00,  3.94it/s]100%|██████████| 82/82 [00:26<00:00,  3.75it/s]100%|██████████| 82/82 [00:26<00:00,  3.14it/s]
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
+[Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed: 65.0min finished
+/home/mjwever/HisVis2/src/train_clip.py:71: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  accuracy = np.mean((test_labels == predictions).astype(np.float)) * 100.
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/mjwever/.local/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Accuracy = 63.604
+                        precision    recall  f1-score   support
+
+                 akker       0.64      0.64      0.64        44
+           amfitheater       0.50      0.80      0.62        10
+                  aula       0.34      0.38      0.36        32
+                  auto       0.78      0.53      0.63        98
+          auto_ongeluk       0.77      0.74      0.75        58
+              bakkerij       0.60      0.32      0.41        19
+     basketbal_korfbal       0.92      0.63      0.75        57
+         begraafplaats       0.62      0.45      0.53        11
+            begrafenis       0.48      0.48      0.48        27
+bibliotheek_boekwinkel       0.34      0.40      0.37        25
+               biljart       1.00      0.79      0.88        14
+        binnen_zwembad       0.82      0.88      0.85        26
+               bloemen       0.50      0.48      0.49        21
+           bloementuin       0.54      0.54      0.54        28
+                boksen       0.67      0.40      0.50         5
+     borden_gevelsteen       0.64      0.47      0.54       125
+              bos_park       0.58      0.55      0.56        82
+                 boten       0.66      0.67      0.66       136
+            bouwplaats       0.62      0.72      0.67       396
+                 brand       0.87      0.69      0.77       114
+                  brug       0.48      0.43      0.46        37
+              bruiloft       0.64      0.40      0.49        45
+        buiten_zwembad       0.65      0.68      0.67        22
+             bus_truck       0.61      0.58      0.59       109
+                  cafe       0.43      0.51      0.46        75
+              carnaval       0.73      0.33      0.46        33
+                casino       0.00      0.00      0.00         1
+               catwalk       0.57      0.68      0.62        19
+                circus       0.76      0.65      0.70        49
+               cricket       1.00      0.94      0.97        54
+       dansende_mensen       0.53      0.59      0.56        79
+          demonstratie       0.65      0.54      0.59        91
+         dieren_overig       0.56      0.38      0.46        47
+                duinen       0.56      0.40      0.47        25
+                  eend       0.27      0.33      0.30         9
+               etalage       0.38      0.58      0.46        52
+         etende_mensen       0.58      0.67      0.62        96
+               fabriek       0.53      0.61      0.57       143
+      fietsende_mensen       0.51      0.60      0.55        60
+       garage_showroom       0.86      0.41      0.56        29
+                gebouw       0.65      0.73      0.69       361
+          geestelijken       0.62      0.57      0.59        51
+                  golf       0.70      0.50      0.58        14
+         groepsportret       0.63      0.63      0.63       496
+            gymnastiek       0.66      0.66      0.66        53
+               handbal       0.62      0.79      0.70        38
+             hardlopen       0.59      0.84      0.69        31
+                 haven       0.39      0.62      0.47        52
+            helikopter       0.67      0.57      0.62         7
+            herdenking       0.45      0.48      0.47        29
+ historisch_toneelstuk       0.41      0.24      0.31        37
+                hockey       0.81      0.55      0.66        40
+                  hond       0.76      0.79      0.78        48
+               honkbal       0.78      0.84      0.81       141
+                huisje       0.29      0.33      0.31        27
+             kaartspel       1.00      0.60      0.75         5
+                  kade       0.44      0.30      0.36        27
+              kamperen       0.72      0.46      0.57        28
+               kantoor       0.48      0.63      0.54       117
+                kapper       0.89      0.50      0.64        16
+                   kat       0.69      0.56      0.62        16
+           kerk_binnen       0.67      0.65      0.66       104
+           kerk_buiten       0.78      0.56      0.65        87
+                kermis       0.72      0.56      0.63        41
+              kerstmis       0.64      0.39      0.48        36
+                keuken       0.69      0.52      0.59        42
+            klaslokaal       0.48      0.52      0.49        93
+                   koe       0.73      0.53      0.62        15
+                konijn       0.50      0.33      0.40         9
+             kunstwerk       0.54      0.58      0.56       162
+             luchtfoto       0.86      0.80      0.83        60
+              maquette       0.80      0.73      0.76       103
+                 markt       0.51      0.61      0.56       123
+    mensen_op_een_boot       0.47      0.46      0.46        61
+        mensen_op_trap       0.67      0.15      0.25        13
+           mensenmassa       0.44      0.54      0.48       177
+              militair       0.50      0.35      0.41        34
+            motorfiets       0.84      0.57      0.68        28
+       muziek_optreden       0.74      0.66      0.70       319
+      ongeluk_brancard       0.29      0.25      0.27         8
+    ontvangst_afscheid       0.32      0.24      0.27        63
+             opgraving       0.50      0.30      0.37        10
+               optocht       0.41      0.56      0.48        85
+                 paard       0.78      0.88      0.83        74
+           plattegrond       0.40      0.31      0.35        13
+               portret       0.77      0.80      0.79      1452
+                  race       0.78      0.67      0.72        27
+                roeien       0.87      0.62      0.72        21
+                 rugby       0.00      0.00      0.00         3
+             schaatsen       0.72      0.75      0.74        28
+        schaken_dammen       0.82      0.71      0.76        59
+           scheepswerf       0.81      0.39      0.53        33
+           sinterklaas       0.76      0.59      0.67       132
+              slagerij       0.40      0.73      0.52        11
+       sneeuwlandschap       0.58      0.76      0.66        37
+                speech       0.70      0.53      0.60       120
+             speeltuin       0.49      0.55      0.52        42
+              spoorweg       0.00      0.00      0.00         3
+          sport_overig       0.44      0.13      0.21        82
+            standbeeld       0.45      0.53      0.49        66
+            stemlokaal       0.00      0.00      0.00         8
+                straat       0.47      0.55      0.51       271
+                strand       0.70      0.78      0.74        82
+          tafel_tennis       0.90      0.86      0.88        21
+                tennis       0.86      0.72      0.78        43
+       tentoonstelling       0.48      0.49      0.49       124
+                terras       0.67      0.57      0.62        35
+               theater       0.41      0.49      0.44        98
+                 toren       0.34      0.81      0.48        16
+                  tram       0.67      0.38      0.48        21
+                 trein       0.64      0.47      0.54        34
+         trein_ongeluk       0.75      0.71      0.73        17
+         trein_station       0.50      0.40      0.44        15
+  uitreiking_huldiging       0.63      0.70      0.66       392
+            vechtsport       0.67      0.77      0.71        13
+        vergaderruimte       0.66      0.66      0.66       144
+           vijver_plas       0.55      0.46      0.50        24
+              visserij       0.60      0.56      0.58        70
+           vlag_hijsen       0.38      0.18      0.24        17
+             vliegtuig       0.74      0.69      0.72        42
+               voetbal       0.88      0.89      0.88       368
+          voetbal_team       0.74      0.88      0.80        40
+                vogels       0.73      0.44      0.55        36
+             volleybal       0.88      0.77      0.82        39
+           vuilnisbelt       0.00      0.00      0.00         5
+             waterpolo       0.87      0.87      0.87        15
+              waterweg       0.42      0.46      0.44        59
+            wielrennen       0.75      0.50      0.60        42
+             windmolen       0.73      0.61      0.67        18
+            windsurfen       1.00      0.50      0.67         2
+         winkel_binnen       0.55      0.56      0.56       139
+          winkelstraat       0.42      0.40      0.41        53
+             woonkamer       0.48      0.34      0.40        82
+              woonwijk       0.25      0.41      0.31        61
+           zaalvoetbal       0.73      0.61      0.67        18
+        zeepkistenrace       0.75      0.67      0.71         9
+            ziekenhuis       0.30      0.45      0.36        33
+                 zwaan       0.83      0.62      0.71         8
+
+              accuracy                           0.64     10427
+             macro avg       0.60      0.54      0.56     10427
+          weighted avg       0.65      0.64      0.63     10427
+
+top5 acc 0.9060132348710079
+ This problem is unconstrained.
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =        70794     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.04974D+05    |proj g|=  3.63259D+04
+
+At iterate   50    f=  4.96891D+04    |proj g|=  9.65809D+02
+
+At iterate  100    f=  4.14287D+04    |proj g|=  4.74371D+02
+
+At iterate  150    f=  3.75301D+04    |proj g|=  6.00762D+02
+
+At iterate  200    f=  3.61349D+04    |proj g|=  1.42382D+02
+
+At iterate  250    f=  3.55739D+04    |proj g|=  2.82344D+02
+
+At iterate  300    f=  3.53273D+04    |proj g|=  6.89879D+01
+
+At iterate  350    f=  3.52142D+04    |proj g|=  5.64344D+01
+
+At iterate  400    f=  3.51684D+04    |proj g|=  7.93756D+01
+
+At iterate  450    f=  3.51490D+04    |proj g|=  3.02283D+01
+
+At iterate  500    f=  3.51394D+04    |proj g|=  4.59328D+01
+
+At iterate  550    f=  3.51348D+04    |proj g|=  1.04326D+01
+
+At iterate  600    f=  3.51316D+04    |proj g|=  3.25259D+01
+
+At iterate  650    f=  3.51290D+04    |proj g|=  9.62932D+00
+
+At iterate  700    f=  3.51261D+04    |proj g|=  9.14145D+00
+
+At iterate  750    f=  3.51226D+04    |proj g|=  9.25021D+00
+
+At iterate  800    f=  3.51183D+04    |proj g|=  3.77056D+01
+
+At iterate  850    f=  3.51138D+04    |proj g|=  2.21433D+01
+
+At iterate  900    f=  3.51101D+04    |proj g|=  1.14165D+01
+
+At iterate  950    f=  3.51076D+04    |proj g|=  8.96797D+00
+
+At iterate 1000    f=  3.51061D+04    |proj g|=  1.57569D+01
+
+At iterate 1050    f=  3.51051D+04    |proj g|=  1.30451D+01
+
+At iterate 1100    f=  3.51044D+04    |proj g|=  1.40576D+01
+
+At iterate 1150    f=  3.51038D+04    |proj g|=  5.76627D+00
+
+At iterate 1200    f=  3.51032D+04    |proj g|=  1.51451D+01
+
+At iterate 1250    f=  3.51024D+04    |proj g|=  4.92227D+00
+
+At iterate 1300    f=  3.51015D+04    |proj g|=  1.28322D+01
+
+At iterate 1350    f=  3.51007D+04    |proj g|=  8.66085D+00
+
+At iterate 1400    f=  3.51001D+04    |proj g|=  3.25102D+00
+
+At iterate 1450    f=  3.50997D+04    |proj g|=  8.18572D+00
+
+At iterate 1500    f=  3.50994D+04    |proj g|=  4.78021D+00
+
+At iterate 1550    f=  3.50993D+04    |proj g|=  6.53976D+00
+
+At iterate 1600    f=  3.50991D+04    |proj g|=  2.86644D+00
+
+At iterate 1650    f=  3.50990D+04    |proj g|=  1.46035D+00
+
+At iterate 1700    f=  3.50988D+04    |proj g|=  2.18792D+00
+
+At iterate 1750    f=  3.50986D+04    |proj g|=  2.55785D+00
+
+At iterate 1800    f=  3.50984D+04    |proj g|=  2.69731D+00
+
+At iterate 1850    f=  3.50982D+04    |proj g|=  4.59459D+00
+
+At iterate 1900    f=  3.50981D+04    |proj g|=  1.30211D+00
+
+At iterate 1950    f=  3.50981D+04    |proj g|=  1.51781D+00
+
+At iterate 2000    f=  3.50980D+04    |proj g|=  1.93890D+00
+
+At iterate 2050    f=  3.50980D+04    |proj g|=  2.58103D+00
+
+At iterate 2100    f=  3.50980D+04    |proj g|=  1.96114D+00
+
+At iterate 2150    f=  3.50979D+04    |proj g|=  3.19948D+00
+
+At iterate 2200    f=  3.50979D+04    |proj g|=  1.12084D+00
+
+At iterate 2250    f=  3.50978D+04    |proj g|=  2.31093D+00
+
+At iterate 2300    f=  3.50977D+04    |proj g|=  1.08625D+00
+
+At iterate 2350    f=  3.50977D+04    |proj g|=  2.96901D+00
+
+At iterate 2400    f=  3.50976D+04    |proj g|=  1.07093D+01
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+70794   2426   2538      1     0     0   7.368D+00   3.510D+04
+  F =   35097.629181067598     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+starting training on inside_outside set!
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+learning rate: 0.0003
+batch size: 64
+using places365, higher batch, focus on rotation and zoom
+/scratch/inside_outside
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+['binnen', 'buiten']
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+█epoch     train_loss  valid_loss  top_k_accuracy  accuracy  error_rate  time    
+██Traceback (most recent call last):
+  File "/home/mjwever/HisVis2/src/train_places_model.py", line 121, in <module>
+    main(args.training_data_path, args.batch_size, args.n_epochs, args.lr, args.find_lr, args.output_path)
+  File "/home/mjwever/HisVis2/src/train_places_model.py", line 98, in main
+    learn.fit_one_cycle(n_epochs, lr, cbs=[EarlyStoppingCallback(monitor='valid_loss', min_delta=0.01, patience=5)])
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/callback/schedule.py", line 116, in fit_one_cycle
+    self.fit(n_epoch, cbs=ParamScheduler(scheds)+L(cbs), reset_opt=reset_opt, wd=wd)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 221, in fit
+    self._with_events(self._do_fit, 'fit', CancelFitException, self._end_cleanup)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 163, in _with_events
+    try: self(f'before_{event_type}');  f()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 212, in _do_fit
+    self._with_events(self._do_epoch, 'epoch', CancelEpochException)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 163, in _with_events
+    try: self(f'before_{event_type}');  f()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 207, in _do_epoch
+    self._do_epoch_validate()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 203, in _do_epoch_validate
+    with torch.no_grad(): self._with_events(self.all_batches, 'validate', CancelValidException)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 163, in _with_events
+    try: self(f'before_{event_type}');  f()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 169, in all_batches
+    for o in enumerate(self.dl): self.one_batch(*o)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 194, in one_batch
+    self._with_events(self._do_one_batch, 'batch', CancelBatchException)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 165, in _with_events
+    self(f'after_{event_type}');  final()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 141, in __call__
+    def __call__(self, event_name): L(event_name).map(self._call_one)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastcore/foundation.py", line 155, in map
+    def map(self, f, *args, gen=False, **kwargs): return self._new(map_ex(self, f, *args, gen=gen, **kwargs))
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastcore/basics.py", line 698, in map_ex
+    return list(res)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastcore/basics.py", line 683, in __call__
+    return self.func(*fargs, **kwargs)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 145, in _call_one
+    for cb in self.cbs.sorted('order'): cb(event_name)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/callback/core.py", line 45, in __call__
+    if self.run and _run: res = getattr(self, event_name, noop)()
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 504, in after_batch
+    for met in mets: met.accumulate(self.learn)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/learner.py", line 426, in accumulate
+    self.total += learn.to_detach(self.func(learn.pred, *learn.yb))*bs
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/metrics.py", line 110, in top_k_accuracy
+    inp = inp.topk(k=k, dim=axis)[1]
+  File "/home/mjwever/.local/lib/python3.9/site-packages/fastai/torch_core.py", line 340, in __torch_function__
+    res = super().__torch_function__(func, types, args=args, kwargs=kwargs)
+  File "/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py", line 1051, in __torch_function__
+    ret = func(*args, **kwargs)
+RuntimeError: selected index k out of range
+/home/mjwever/.local/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
+torch.linalg.solve has its arguments reversed and does not return the LU factorization.
+To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
+X = torch.solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve(A, B) (Triggered internally at  ../aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
+  ret = func(*args, **kwargs)
+[Flip -- {'size': None, 'mode': 'bilinear', 'pad_mode': 'reflection', 'mode_mask': 'nearest', 'align_corners': True, 'p': 0.5}:
+encodes: (TensorImage,object) -> encodes
+(TensorMask,object) -> encodes
+(TensorBBox,object) -> encodes
+(TensorPoint,object) -> encodes
+decodes: , Brightness -- {'max_lighting': 0.2, 'p': 1.0, 'draw': None, 'batch': False}:
+encodes: (TensorImage,object) -> encodes
+decodes: , RandomResizedCropGPU -- {'size': (224, 224), 'min_scale': 0.75, 'ratio': (1, 1), 'mode': 'bilinear', 'valid_scale': 1.0, 'max_scale': 1.0, 'p': 1.0}:
+encodes: (TensorImage,object) -> encodes
+decodes: , Normalize -- {'mean': tensor([[[[0.4850]],
+
+         [[0.4560]],
+
+         [[0.4060]]]], device='cuda:0'), 'std': tensor([[[[0.2290]],
+
+         [[0.2240]],
+
+         [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}:
+encodes: (TensorImage,object) -> encodes
+decodes: (TensorImage,object) -> decodes
+]
+  0%|          | 0/51 [00:00<?, ?it/s]  2%|▏         | 1/51 [00:03<02:59,  3.59s/it]  4%|▍         | 2/51 [00:03<01:21,  1.65s/it]  6%|▌         | 3/51 [00:04<00:48,  1.02s/it]  8%|▊         | 4/51 [00:04<00:35,  1.33it/s] 10%|▉         | 5/51 [00:04<00:27,  1.70it/s] 12%|█▏        | 6/51 [00:05<00:22,  2.02it/s] 14%|█▎        | 7/51 [00:05<00:18,  2.34it/s] 16%|█▌        | 8/51 [00:05<00:17,  2.52it/s] 18%|█▊        | 9/51 [00:06<00:15,  2.77it/s] 20%|█▉        | 10/51 [00:06<00:13,  3.00it/s] 22%|██▏       | 11/51 [00:06<00:12,  3.16it/s] 24%|██▎       | 12/51 [00:06<00:11,  3.26it/s] 25%|██▌       | 13/51 [00:07<00:11,  3.37it/s] 27%|██▋       | 14/51 [00:07<00:10,  3.44it/s] 29%|██▉       | 15/51 [00:07<00:11,  3.19it/s] 31%|███▏      | 16/51 [00:08<00:10,  3.27it/s] 33%|███▎      | 17/51 [00:08<00:10,  3.37it/s] 35%|███▌      | 18/51 [00:08<00:09,  3.39it/s] 37%|███▋      | 19/51 [00:08<00:09,  3.32it/s] 39%|███▉      | 20/51 [00:09<00:09,  3.40it/s] 41%|████      | 21/51 [00:09<00:08,  3.47it/s] 43%|████▎     | 22/51 [00:09<00:08,  3.52it/s] 45%|████▌     | 23/51 [00:10<00:07,  3.56it/s] 47%|████▋     | 24/51 [00:10<00:07,  3.54it/s] 49%|████▉     | 25/51 [00:10<00:07,  3.56it/s] 51%|█████     | 26/51 [00:10<00:07,  3.38it/s] 53%|█████▎    | 27/51 [00:11<00:06,  3.50it/s] 55%|█████▍    | 28/51 [00:11<00:06,  3.42it/s] 57%|█████▋    | 29/51 [00:11<00:06,  3.49it/s] 59%|█████▉    | 30/51 [00:12<00:05,  3.59it/s] 61%|██████    | 31/51 [00:12<00:05,  3.60it/s] 63%|██████▎   | 32/51 [00:12<00:05,  3.63it/s] 65%|██████▍   | 33/51 [00:12<00:04,  3.63it/s] 67%|██████▋   | 34/51 [00:13<00:04,  3.67it/s] 69%|██████▊   | 35/51 [00:13<00:04,  3.70it/s] 71%|███████   | 36/51 [00:13<00:04,  3.70it/s] 73%|███████▎  | 37/51 [00:13<00:03,  3.72it/s] 75%|███████▍  | 38/51 [00:14<00:03,  3.70it/s] 76%|███████▋  | 39/51 [00:14<00:03,  3.69it/s] 78%|███████▊  | 40/51 [00:14<00:02,  3.68it/s] 80%|████████  | 41/51 [00:15<00:02,  3.66it/s] 82%|████████▏ | 42/51 [00:15<00:02,  3.66it/s] 84%|████████▍ | 43/51 [00:15<00:02,  3.65it/s] 86%|████████▋ | 44/51 [00:15<00:01,  3.66it/s] 88%|████████▊ | 45/51 [00:16<00:01,  3.66it/s] 90%|█████████ | 46/51 [00:16<00:01,  3.66it/s] 92%|█████████▏| 47/51 [00:16<00:01,  3.67it/s] 94%|█████████▍| 48/51 [00:16<00:00,  3.65it/s] 96%|█████████▌| 49/51 [00:17<00:00,  3.62it/s] 98%|█████████▊| 50/51 [00:17<00:00,  3.62it/s]100%|██████████| 51/51 [00:17<00:00,  3.63it/s]100%|██████████| 51/51 [00:17<00:00,  2.86it/s]
+  0%|          | 0/13 [00:00<?, ?it/s]  8%|▊         | 1/13 [00:03<00:41,  3.43s/it] 15%|█▌        | 2/13 [00:03<00:17,  1.60s/it] 23%|██▎       | 3/13 [00:04<00:09,  1.02it/s] 31%|███       | 4/13 [00:04<00:06,  1.44it/s] 38%|███▊      | 5/13 [00:04<00:04,  1.87it/s] 46%|████▌     | 6/13 [00:04<00:03,  2.29it/s] 54%|█████▍    | 7/13 [00:04<00:02,  2.67it/s] 62%|██████▏   | 8/13 [00:05<00:01,  3.00it/s] 69%|██████▉   | 9/13 [00:05<00:01,  3.28it/s] 77%|███████▋  | 10/13 [00:05<00:00,  3.47it/s] 85%|████████▍ | 11/13 [00:05<00:00,  3.58it/s] 92%|█████████▏| 12/13 [00:06<00:00,  3.69it/s]100%|██████████| 13/13 [00:06<00:00,  3.54it/s]100%|██████████| 13/13 [00:06<00:00,  1.97it/s]
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
+[Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:   49.4s finished
+/home/mjwever/HisVis2/src/train_clip.py:71: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  accuracy = np.mean((test_labels == predictions).astype(np.float)) * 100.
+Accuracy = 94.153
+              precision    recall  f1-score   support
+
+      binnen       0.95      0.92      0.94       757
+      buiten       0.94      0.96      0.95       902
+
+    accuracy                           0.94      1659
+   macro avg       0.94      0.94      0.94      1659
+weighted avg       0.94      0.94      0.94      1659
+
+top5 acc 1.0
+ This problem is unconstrained.
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =          513     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  4.52486D+03    |proj g|=  1.72462D+03
+
+At iterate   50    f=  7.91792D+02    |proj g|=  1.20590D+01
+
+At iterate  100    f=  7.90084D+02    |proj g|=  7.80913D-01
+
+At iterate  150    f=  7.90061D+02    |proj g|=  1.78956D-01
+
+At iterate  200    f=  7.90048D+02    |proj g|=  7.57719D-02
+
+At iterate  250    f=  7.90044D+02    |proj g|=  1.78179D-01
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+  513    266    304      1     0     0   1.333D-01   7.900D+02
+  F =   790.04406591240320     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             

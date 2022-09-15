@@ -19,6 +19,7 @@ def get_single_img_features(img_path):
     return features.cpu().numpy()
 
 
+
 def get_features(model, dataset):
     all_features = []
     all_labels = []

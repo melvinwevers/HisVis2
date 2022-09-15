@@ -40,14 +40,14 @@ Dr. Melvin Wevers (melvin.wevers(at)uva.nl)
 ### Data
 
 #### Intermediary
-`extra_training_labels.csv` = labels for which additional samples were need in annotation step 3.
+`extra_training_labels.csv`- labels for which additional samples were need in annotation step 3.
 
 #### Processed
 
 ##### Annotations
-`annotation_data_step1.csv` = processed database export
-`annotation_data_step21.csv` = processed database export
-`annotation_data_step3.csv` = processed database export
+`annotation_data_step1.csv` - processed database export
+`annotation_data_step21.csv` - processed database export
+`annotation_data_step3.csv` - processed database export
 
 ##### Training Data
 `all_labels.txt` - list of all labels used
@@ -58,6 +58,15 @@ Place training data from Zenodo here.
 
 #### Test
 Contains example test file
+
+### Docs
+`data_sheet.md` - data sheet for HisVis dataset
+`label_sheet.md` - label sheet documenting used labels
+`model_card_indoor_outdoor_clip` - model card for indoor-outdoor detection using CLIP
+`model_card_indoor_outdoor_places` - model card for indoor-outdoor detection using Places-365
+`model_card_rotation` - model card for correct rotation detection
+`model_card_scene_detection_clip` - model card for scene detection using CLIP
+`model_card_scene_detection_places` - model card for scene detection using Places-365
 
 
 ### Notebooks
@@ -71,19 +80,23 @@ Contains example test file
 
 ### Output
 `finding_learningrate.out` - output from learning rate finder used to estimate optimal learning rate
+`slurm-9991191.out` stack trace for training models
+`slurm-9992781.out` stack trace for training models
+
 
 #### Models
 Place models.tar.gz from Zenodo here
 
+##### indoor_outdoor
+Models and evaluation of models for indoor-outdoor detection
+
 ##### Rotation
 `rotation.pkl` model used to predict correct rotation of images 
 
-##### Indoor_Outdoor
-
 ##### Scenes
-Models trained on non-cleaned dataset (cleaning involved removing classes with less than 25 images and misc classes)
+Models and evaluation for models for scene detection
 
-### SRC
+### src
 
 - `find_correct_rotation.py` - Python script to rotate images until they are correctly oriented. This makes use of the `rotation.pkl` model. This model has been trained using the notebook `train_model_rotation.ipynb`
 - `helper.py` - script with different helper functions
