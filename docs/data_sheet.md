@@ -1,12 +1,12 @@
 ---
 title: De Boer Press Photography Data Sheet
-authors: Melvin Wevers, Nico Vriend, Alexandra Barancová
+authors: Melvin Wevers, Nico Vriend, Alexandra Barancová, Jan Kruidhof, Lars Vereecken
 tags: HisVis 
 ---
 
 
 # De Boer Press Photography Data Sheet
-Melvin Wevers, Nico Vriend, Alexandra Barancová
+Melvin Wevers, Nico Vriend, Alexandra Barancová, Jan Kruidhof, Lars Vereecken
 
 
 Following [Gebru et al. 2021.](https://dl.acm.org/doi/10.1145/3458723), we constructed a datasheet for the dataset used in the HisVis project. Datasheets encourage creators of the data to reflect on the "process of creating, distributing, and maintaining a dataset" as well as on the implications of its use. For users of the data, this datasheet assists in determining whether required information is provided to make proper and informed use of the data and its resulting models. For more on the model, see the HisVis Model Card and more on the labels used, see the HisVis Label Sheet.
@@ -48,7 +48,7 @@ Each instance is associated with a label, however we have included the category 
 The data is split randomly using a twenty percent validation split, meaning that 80 percent of each label is used as training data. 
 
 ### Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, tweets, other datasets)?
-The dataset is self-contained. It also links to the original photo negative sheets, which are stored by Picturae and presented on the Noord-Hollands Archief's [website](https://noord-hollandsarchief.nl/beelden/beeldbank/).
+The dataset is self-contained. It also links to the original photo negative sheets, which are stored by Picturae and presented on the Noord-Hollands Archief's [website](https://noord-hollandsarchief.nl/beeldbankdeboer).
 
 ### Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctorpatient confidentiality, data that includes the content of individuals’ non-public communications)?
 No
