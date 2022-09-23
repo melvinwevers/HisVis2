@@ -1,6 +1,6 @@
 ---
 title: Label Sheet
-author: Melvin Wevers, Nico de Vriend, Alexandra Barancová
+author: Melvin Wevers, Nico Vriend, Alexandra Barancová, Jan Kruidhof, Lars Vereecken
 tags: HisVis
 ---
 Labels describe the objects, settings, events or activities that are central to the scene depicted in a given photograph.
