@@ -5,6 +5,7 @@ import argparse
 import os
 import glob
 import shutil
+import numpy as np
 
 def clean_folder(input_path, output_path, min_files=10):
     '''
@@ -19,22 +20,24 @@ def clean_folder(input_path, output_path, min_files=10):
     # if not os.path.exists(output_path):
     #     os.makedirs(output_path)
 
-    shutil.copytree(input_path, output_path)
+    #shutil.copytree(input_path, output_path)
 
-    path = output_path
+    path = input_path
+    #path = output_path
 
-    for _ in remove_folders:
-        if os.path.exists(os.path.join(path, _)) and os.path.isdir(os.path.join(path, _)):
-            shutil.rmtree(os.path.join(path, _))
-    folders = ([name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))]) # get all directories 
-    for folder in folders:
-        contents = os.listdir(os.path.join(path,folder)) # get list of contents
-        if len(contents) < min_files: 
-            shutil.rmtree(os.path.join(path,folder))
-            print('removed {}'.format(folder)) # this remove folder from training data! 
+    # for _ in remove_folders:
+    #     if os.path.exists(os.path.join(path, _)) and os.path.isdir(os.path.join(path, _)):
+    #         shutil.rmtree(os.path.join(path, _))
+    folders = sorted(([name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))])) # get all directories 
+    # for folder in folders:
+    #     contents = os.listdir(os.path.join(path,folder)) # get list of contents
+    #     if len(contents) < min_files: 
+    #         shutil.rmtree(os.path.join(path,folder))
+    #         print('removed {}'.format(folder)) # this remove folder from training data! 
     with open(os.path.join('../data/processed', "all_labels.txt"), "w") as output:
-        output.write(str(folders))
-    output.close()
+        for folder in folders:
+            output.write(f'{folder}\n')
+    # output.close()
 
 
 

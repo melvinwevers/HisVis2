@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 import argparse
 import cv2 as cv
 import os
 import glob
 from PIL import Image
-import warnings
 import time
 
 
@@ -28,7 +26,7 @@ def crop_biggest(imgPath, outPath, format, threshold = 50, resize=True, find_bor
     try: 
         img = cv.imread(imgPath, cv.IMREAD_GRAYSCALE)
         file_name = os.path.basename(imgPath)[:-4]
-        print(file_name)
+        #print(file_name)
         dir_name = os.path.dirname(glob.glob(imgPath)[0]).split('/')[-1]
     except Exception:
         print('File could not be opened')
@@ -58,7 +56,7 @@ def crop_biggest(imgPath, outPath, format, threshold = 50, resize=True, find_bor
 
             threshold -= 1 # lower threshold if images is too small
             if threshold < 45:
-                print('stop lowering threshold')
+                #print('stop lowering threshold')
                 mistakes.append(file_name)
                 break
         if w > w_max or h > h_max:
@@ -77,7 +75,7 @@ def crop_biggest(imgPath, outPath, format, threshold = 50, resize=True, find_bor
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('input_path', help='Path to image directory') # '../data/**/*.jp2' 
+    parser.add_argument('input_path', help='Path to image directory') # '../data/**/*.jp2' Don't forget the ' '
     parser.add_argument('-o', '--output_path', help='Output Path')
     parser.add_argument('-t', '--threshold', help='border detection threshold', default=50)
     parser.add_argument('-f', '--format', help='type of photograph')
@@ -89,7 +87,7 @@ if __name__ == '__main__':
 
     input_path = args.input_path
     format = args.format
-    output_path = args.output_path if args.output_path else args.input_path
+    output_path = args.output_path 
     threshold = args.threshold
     resize = args.resize
     find_border = args.crop
@@ -106,13 +104,14 @@ if __name__ == '__main__':
     print(len(imgs))
 
     for i, image in enumerate(imgs):
-        print(i)
+        if i % 100 == 99:
+            print(i)
         #imgPath = os.path.join(input_path, image)
         crop_biggest(image, output_path, format, threshold, resize, find_border)
         os.remove(image)
 
 
-    with open(os.path.join(output_path, current_time, 'mistakes_cropping.txt'), 'w') as f:
+    with open(os.path.join(output_path, f'{current_time}_mistakes_cropping.txt'), 'w') as f:
         for item in mistakes:
             f.write("%s\n" % item)
         

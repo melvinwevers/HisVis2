@@ -18,6 +18,19 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load('ViT-B/32', device)
 
 
+def get_single_img_features(img_path):
+    '''
+    extract features from a single image using CLIP
+    '''
+        
+    image = preprocess(Image.open(img_path)).unsqueeze(0).to(device)
+  
+    with torch.no_grad():
+        features = model.encode_image(image)
+
+    return features.cpu().numpy()
+
+
 
 def make_places_prediction(places_model, classes, img_path, topk=5):
     '''
@@ -135,7 +148,13 @@ def main(data_path, model_path, output_path):
     # print(classes)
 
     # to do load classes from txt file
-    classes = np.loadtxt('../data/processed/all_labels.txt')
+    classes = []
+
+    with open('./data/processed/all_labels.txt', 'r') as input:
+        for line in input:
+            line = line[:-1]
+            classes.append(line)
+    classes = np.array(classes)
     #classes = np.array(['akker', 'amfitheater', 'aula', 'auto', 'auto_ongeluk', 'bakkerij', 'basketbal_korfbal', 'begraafplaats', 'begrafenis', 'bibliotheek_boekwinkel', 'binnen_zwembad', 'bloemen', 'bloementuin', 'borden_gevelsteen', 'bos_park', 'boten', 'bouwplaats', 'brand', 'brug', 'bruiloft', 'buiten_zwembad', 'bus_truck', 'cafe', 'catwalk', 'circus', 'cricket', 'dansende_mensen', 'demonstratie', 'dieren_overig', 'duinen', 'eend', 'etalage', 'etende_mensen', 'fabriek', 'fietsende_mensen', 'garage_showroom', 'gebouw', 'geestelijken', 'golf', 'groepsportret', 'gymnastiek', 'handbal', 'hardlopen', 'haven', 'herdenking', 'historisch_toneelstuk', 'hockey', 'hond', 'honkbal', 'huisje', 'kade', 'kamperen', 'kantoor', 'kapper', 'kat', 'kerk_binnen', 'kerk_buiten', 'kerstmis', 'keuken', 'klaslokaal', 'koe', 'konijn', 'kunstwerk', 'luchtfoto', 'maquette', 'markt', 'mensen_op_een_boot', 'mensen_op_trap', 'mensenmassa', 'militair', 'motorfiets', 'muziek_optreden', 'ongeluk_brancard', 'ontvangst_afscheid', 'opgraving', 'optocht', 'paard', 'plattegrond', 'portret', 'race', 'roeien', 'schaatsen', 'schaken_dammen', 'scheepswerf', 'sinterklaas', 'slagerij', 'sneeuwlandschap', 'speech', 'speeltuin', 'sport_overig', 'standbeeld', 'straat', 'strand', 'tafel_tennis', 'tentoonstelling', 'terras', 'theater', 'toren', 'tram', 'trein', 'trein_ongeluk', 'trein_station', 'uitreiking_huldiging', 'vechtsport', 'vergaderruimte', 'vijver_plas', 'visserij', 'vlag_hijsen', 'vliegtuig', 'voetbal', 'voetbal_team', 'vogels', 'volleybal', 'waterweg', 'wielrennen', 'windmolen', 'winkel_binnen', 'winkelstraat', 'woonkamer', 'woonwijk', 'zaalvoetbal', 'zeepkistenrace', 'ziekenhuis', 'zwaan'])
     print(f'Classes are: {classes}')
 
@@ -143,11 +162,13 @@ def main(data_path, model_path, output_path):
     print(f'model path is: {model_path}')
 
     # places model
-    places_model = load_learner(os.path.join(model_path, '20220630DeBoerPlaces.pkl'))
+    # TODO: remove hardcoded model reference
+    places_model = load_learner(os.path.join(model_path, '20220913_places_scene_detection_model.pkl'))
     print('Places model loaded')
 
     # clip model
-    clip_model = pickle.load(open(os.path.join(model_path, '20220630_clip_linear_prob_model.sav'), 'rb'))
+    # TODO: remove hardcoded model reference
+    clip_model = pickle.load(open(os.path.join(model_path, '20220914_clip_scene_detection_model.sav'), 'rb'))
     print('Clip model loaded')
 
 
@@ -184,12 +205,12 @@ def main(data_path, model_path, output_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     #parser.add_argument('--training_data_path', type=str, default='../../data/DeBoer_Step1')
-    parser.add_argument('--data_path', default='../../MelvinWevers#9512/VeleHanden')
-    parser.add_argument('--model_path', type=str, default='./models')
+    parser.add_argument('--data_path', default='../data/Batch_98')
+    parser.add_argument('--model_path', type=str, default='../output/models/scenes/')
     parser.add_argument('--output_path', type=str, default='../output/predictions/')
     args = parser.parse_args()
 
-    if not os.path.exists('./output/predictions'):
-        os.makedirs('./output/predictions')
+    if not os.path.exists('../output/predictions'):
+        os.makedirs('../output/predictions')
     
     main(args.data_path, args.model_path, args.output_path)

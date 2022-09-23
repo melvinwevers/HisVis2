@@ -1,5 +1,6 @@
 from fastai.vision.all import *
 import torch
+import clip
 from tqdm import tqdm
 
 
