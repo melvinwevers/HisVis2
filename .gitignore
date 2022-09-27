@@ -1,5 +1,6 @@
 models/
 output/models/
+data/Batch_98/
 data/step3_training_data/
 .DS_store
 .DS_Store

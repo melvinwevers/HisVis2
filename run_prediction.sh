@@ -12,7 +12,7 @@ module load Python/3.9.5-GCCcore-10.3.0
  
 #Copy input file to scratch
 cp -r ./data/Batch_98 "$TMPDIR"
-cp -r ./output/models/scenes "$TMPDIR"
+cp -r ./output/models/indoor_outdoor "$TMPDIR"
 
 echo "files copied!"
  
