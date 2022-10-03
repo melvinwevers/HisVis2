@@ -70,7 +70,6 @@ koe
 konijn
 kunstwerk
 luchtfoto
-luchthaven
 maquette
 markt
 mensen_op_een_boot

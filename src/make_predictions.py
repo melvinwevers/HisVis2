@@ -47,6 +47,7 @@ def make_places_prediction(places_model, classes, img_path, topk=5):
     
     # make places predictions
     label, y, output = places_model.predict(img_path)
+
     output_places = output.numpy()
     output_places = np.expand_dims(output_places, axis=0)
 
@@ -116,10 +117,11 @@ def make_avg_prediction(places_model, clip_model, classes, img_path, topk=5):
     output_places = output.numpy()
     output_places = np.expand_dims(output_places, axis=0)
 
-    
+    print(f'number of label places: {output_places.shape}')
     # make clip predictions
     img_features = get_single_img_features(img_path)
     output_clip = clip_model.predict_proba(img_features)
+    print(f'number of labels clip: {output_clip.shape}')
     
     # soft averaging
     avg = np.average([output_places, output_clip], axis=0)
@@ -150,7 +152,7 @@ def main(data_path, model_path, output_path):
     # to do load classes from txt file
     classes = []
 
-    with open('./data/processed/all_labels.txt', 'r') as input:
+    with open('../data/processed/all_labels.txt', 'r') as input:
         for line in input:
             line = line[:-1]
             classes.append(line)
